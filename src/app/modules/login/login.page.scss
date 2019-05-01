@@ -1,0 +1,424 @@
+#custom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  background-color: #002a3e;
+}
+
+.flb {
+  background-color: #47cbff;
+  height: 100%;
+  width: 100%;
+  animation: pulse 1s linear forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Aligner-item {
+  max-width: 50%;
+}
+.Aligner-item--top {
+  align-self: flex-start;
+}
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+#custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+  height: auto;
+}
+.login-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 30vh;
+  height: 25vh;
+  margin: 5px auto 0;
+  border-radius: 10%;
+  background: url("https://cdn.dribbble.com/users/25514/screenshots/2825763/fitness_app_logo_design_ramotion.png")
+    no-repeat;
+  background-size: 100%;
+}
+
+$colors: (
+  primary: #4c6df9,
+  secondary: #5b5ef4,
+  danger: #f53d3d,
+  light: #75c4fd,
+  dark: #0039a2
+);
+
+.list-form {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+ion-item {
+  background: none;
+  padding: 0;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  &:after {
+    display: none;
+  }
+}
+ion-label {
+  font-size: 1em;
+  color: color($colors, primary);
+}
+
+input {
+  color: color($colors, primary);
+  background: #0039a2;
+}
+
+// http://ionicframework.com/docs/theming/
+// App Shared Imports
+// --------------------------------------------------
+
+// global styles
+.primary-bg {
+  background-color: color($colors, primary) !important;
+}
+
+.secondary-bg {
+  background-color: color($colors, secondary) !important;
+}
+
+.common-bg {
+  background-color: #fafbfc;
+}
+
+.white-bg {
+  background-color: #fff;
+}
+
+.detail-bg {
+  background-color: #f1f1f5;
+}
+
+.light-bg {
+  background-color: color($colors, light);
+}
+
+.dark-bg {
+  background-color: color($colors, dark);
+}
+
+.green-bg {
+  background-color: #68c91f;
+}
+
+.profile-bg {
+  background-image: linear-gradient(135deg, color($colors, dark), color($colors, primary), color($colors, light));
+}
+//
+//
+.text-primary {
+  color: color($colors, primary);
+}
+
+.text-secondary {
+  color: color($colors, secondary);
+}
+
+.text-green {
+  color: #68c91f;
+}
+
+.text-yellow {
+  color: #fdd835;
+}
+
+.text-white {
+  color: #fff;
+}
+
+//
+.dark-trans,
+.toast-md .toast-wrapper {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// Helpers
+.quarter-op {
+  opacity: 0.25;
+}
+
+.no-paddingTRL {
+  padding-top: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.no-paddingTRB {
+  padding-top: 0 !important;
+  padding-right: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.no-paddingB {
+  padding-bottom: 0 !important;
+}
+
+.no-paddingT {
+  padding-top: 0 !important;
+}
+
+.padding-xs {
+  padding: 10px;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-pl {
+  padding-left: 0 !important;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.no-marginT {
+  margin-top: 0 !important;
+}
+
+.mt-half {
+  margin-top: 0.5rem !important;
+}
+
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-half {
+  margin-bottom: 0.5rem;
+}
+
+.marginB-16px {
+  margin-bottom: 16px !important;
+}
+
+.marginB-2 {
+  margin-bottom: 2rem !important;
+}
+
+.marginT-16px {
+  margin-top: 16px !important;
+}
+
+.marginT-2 {
+  margin-top: 2rem !important;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.rlt {
+  position: relative;
+}
+
+.clear {
+  clear: both;
+}
+
+.align-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.round {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.no-round {
+  border-radius: 0;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(86, 61, 124, 0.1);
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.max-width {
+  max-width: 100% !important;
+}
+
+.padding-sm {
+  padding: 1rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+// text size
+.text-2x {
+  font-size: 2em;
+}
+
+.text-1x {
+  font-size: 1em;
+}
+
+.text-sm {
+  font-size: 0.7em;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+.btn ion-icon {
+  font-size: 30px;
+  color: white;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 4vh;
+  margin-right: 4vh;
+}
+
+// buttons configs
+.btn-facebook {
+  background-color: #3b5999;
+}
+
+.btn-twitter {
+  background-color: #00acee;
+}
+
+.btn-gplus {
+  background-color: #e04006;
+}
+
+// badge style
+ion-badge {
+  &.square {
+    border-radius: 0;
+  }
+}
+
+// card style
+.card {
+  background: #75c4fd;
+  border-radius: 1rem;
+  box-shadow: 0 0 1px rgba(86, 61, 124, 0.2), 0 2px 4px rgba(86, 61, 124, 0.15);
+}
+
+// navbar style
+ion-navbar.no-border {
+  .toolbar-background {
+    border: none;
+  }
+}
+
+// list style
+.list-no-border {
+  .item:first-child {
+    border: none;
+  }
+  .item:last-child {
+    border: none;
+  }
+
+  .item {
+    .item-inner {
+      border: none;
+    }
+  }
+}
+
+.list-full-border {
+  @extend .list-no-border;
+
+  .item,
+  .item:first-child,
+  .item:last-child {
+    border-bottom: 1px solid rgba(86, 61, 124, 0.2);
+    .item-inner {
+      border: none;
+    }
+  }
+}
+
+// item style
+.item.no-border {
+  .item-inner {
+    border: none;
+  }
+}
+
+// Animate CSS
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  animation-duration: 2s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY,
+.animated.bounceIn,
+.animated.bounceOut {
+  animation-duration: 0.75s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+}

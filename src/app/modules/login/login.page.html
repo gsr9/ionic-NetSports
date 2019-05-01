@@ -1,9 +1,79 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content scroll-y=false padding class="auth-page" color="tertiary">
+  <div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
+    <div class="flb">
+      <div class="Aligner-item Aligner-item--top"></div>
+      <!-- <ion-title>NetSport</ion-title> -->
+      <img src="https://cdn.dribbble.com/users/662463/screenshots/2885730/character_jogger_01.gif">
+      <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+  </div>
+  <!-- Contenido de la página  -->
+  <!-- -->
+  <div class="login-content">
 
-<ion-content>
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>NetSport</strong>
+      </h2>
+    </div>
+
+    <!-- Login form -->
+    <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="email" placeholder="Correo Electrónico"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+    </form>
+
+    <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>¿Has olvidado tu contraseña?</strong></p>
+
+    <div class="login-content">
+      <ion-button icon-start block color="dark" tappable (click)="login()">
+        <ion-icon name="log-in"></ion-icon>
+        Acceder
+      </ion-button>
+
+      <p text-center ion-text color="secondary">O entra con:</p>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <button ion-button icon-onl y block class="btn btn-facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn btn-twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col col-4>
+            <button ion-button icon-only block class="btn btn-gplus">
+              <ion-icon name="logo-googleplus"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </div>
+
+
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
+    </div>
+
+  </div>
 
 </ion-content>
