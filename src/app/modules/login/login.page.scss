@@ -42,11 +42,10 @@
 
 .logo {
   width: 30vh;
-  height: 25vh;
-  margin: 5px auto 0;
+  height: 20vh;
+  margin-bottom: 2rem;
   border-radius: 10%;
-  background: url("https://cdn.dribbble.com/users/25514/screenshots/2825763/fitness_app_logo_design_ramotion.png")
-    no-repeat;
+  background: url("../../../assets/icon/logo.png") no-repeat;
   background-size: 100%;
 }
 
@@ -60,29 +59,37 @@ $colors: (
 
 .list-form {
   padding: 0;
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  width: 80%;
 }
 
 ion-item {
   background: none;
   padding: 0;
-
-  &:first-child {
-    border-top: none;
-  }
-
-  &:after {
-    display: none;
-  }
+  margin: 5px;
+  font-size: 1em;
+  box-shadow: none;
 }
+
+.item-inner {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
 ion-label {
   font-size: 1em;
   color: color($colors, primary);
 }
 
-input {
-  color: color($colors, primary);
-  background: #0039a2;
+.item-native {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
 // http://ionicframework.com/docs/theming/
@@ -128,7 +135,8 @@ input {
 //
 //
 .text-primary {
-  color: color($colors, primary);
+  border-radius: 15px;
+  color: #3b5999 !important;
 }
 
 .text-secondary {
@@ -293,13 +301,23 @@ input {
   font-weight: bold !important;
 }
 
+.login-button {
+  width: 90%;
+  border-radius: 20px;
+  background: #0095fa !important;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
 .btn ion-icon {
-  font-size: 30px;
+  font-size: 2em;
   color: white;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
-  margin-left: 4vh;
-  margin-right: 4vh;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 // buttons configs
@@ -313,6 +331,10 @@ input {
 
 .btn-gplus {
   background-color: #e04006;
+}
+
+p {
+  color: #1a68ba;
 }
 
 // badge style
@@ -348,6 +370,8 @@ ion-navbar.no-border {
   .item {
     .item-inner {
       border: none;
+      border-radius: 15px;
+      color: #3b5999 !important;
     }
   }
 }
@@ -361,6 +385,8 @@ ion-navbar.no-border {
     border-bottom: 1px solid rgba(86, 61, 124, 0.2);
     .item-inner {
       border: none;
+      border-radius: 15px;
+      color: #3b5999 !important;
     }
   }
 }
@@ -369,6 +395,8 @@ ion-navbar.no-border {
 .item.no-border {
   .item-inner {
     border: none;
+    border-radius: 15px;
+    color: #3b5999 !important;
   }
 }
 

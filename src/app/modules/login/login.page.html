@@ -1,4 +1,4 @@
-<ion-content scroll-y=false padding class="auth-page" color="tertiary">
+<ion-content scroll-y=false class="auth-page" color="tertiary">
   <div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
     <div class="flb">
       <div class="Aligner-item Aligner-item--top"></div>
@@ -10,46 +10,58 @@
   <!-- Contenido de la página  -->
   <!-- -->
   <div class="login-content">
-
     <!-- Logo -->
-    <div padding-horizontal text-center class="animated fadeInDown">
+    <div text-center class="login-content animated fadeInDown">
+      <h1>NetSport</h1>
       <div class="logo"></div>
-      <h2 ion-text class="text-primary">
-        <strong>NetSport</strong>
-      </h2>
     </div>
 
     <!-- Login form -->
-    <form class="list-form">
-      <ion-item>
+    <form [formGroup]="onLoginForm" class="list-form">
+      <ion-item color="item">
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
         </ion-label>
-        <ion-input type="email" placeholder="Correo Electrónico"></ion-input>
+        <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
       </ion-item>
+      <p ion-text class="text08"
+        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+        <ion-text color="danger">
+          Email incorrecto
+        </ion-text>
+      </p>
 
-      <ion-item>
+      <ion-item color="item">
         <ion-label floating>
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
         </ion-label>
-        <ion-input type="password" placeholder="Contraseña"></ion-input>
+        <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
       </ion-item>
+      <p ion-text color="warning" class="text08"
+        *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+        <ion-text color="danger">
+          Password incorrecto
+        </ion-text>
+      </p>
     </form>
 
-    <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>¿Has olvidado tu contraseña?</strong></p>
+    <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>¿Has olvidado tu
+        contraseña?</strong></p>
 
     <div class="login-content">
-      <ion-button icon-start block color="dark" tappable (click)="login()">
+      <ion-button color="secondary" class="login-button" icon-start block tappable (click)="login()"
+      [disabled]="!onLoginForm.valid">
         <ion-icon name="log-in"></ion-icon>
         Acceder
       </ion-button>
 
-      <p text-center ion-text color="secondary">O entra con:</p>
+      <!-- <p text-center ion-text text-primary>O entra con:</p> -->
+      <hr>
 
       <ion-grid>
         <ion-row>
           <ion-col col-4>
-            <button ion-button icon-onl y block class="btn btn-facebook">
+            <button ion-button icon-only block class="btn btn-facebook">
               <ion-icon name="logo-facebook"></ion-icon>
             </button>
           </ion-col>
@@ -70,9 +82,10 @@
 
 
     <!-- Other links -->
-    <div text-center margin-top>
-      <span ion-text color="secondary" tappable (click)="register()">New here? <strong>Sign up</strong></span>
-    </div>
+    <p>
+      <span ion-text color="secondary" tappable (click)="register()">¿Aún no tienes cuenta? <strong>
+          Regístrate</strong></span>
+    </p>
 
   </div>
 

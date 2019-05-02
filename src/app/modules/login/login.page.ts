@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, Form } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,12 @@ export class LoginPage implements OnInit {
   splash = true;
   tabBarElement: any;
   content: any;
-  constructor() {
+  onLoginForm = this.fb.group({
+    'email': ['', Validators.compose([Validators.required, Validators.email])],
+    'password': ['', Validators.required]
+  });
+
+  constructor(private fb: FormBuilder, private router: Router) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
   }
 
@@ -27,6 +34,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.ionViewDidLoad();
+  }
+
+  login() {
+    this.router.navigate(['tabs/wall'])
   }
 
 }
