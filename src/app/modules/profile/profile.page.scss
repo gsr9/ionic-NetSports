@@ -1,0 +1,22 @@
+.parteArriba{
+  background-color: var(--ion-color-primary);
+  height: 25vh;
+  width: 100vm
+}
+
+.parteAbajo{
+  height: 55vh;
+  width: 100vm
+}
+
+.divImagen{
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.divInfo{
+  height: 25vh;
+  background-color: blue
+}
