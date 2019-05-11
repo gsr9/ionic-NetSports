@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
       // this.tabBarElement.style.display = 'flex';
       // this.content = document.querySelector('ion-content');
       // this.content.scrollY = true;
-    }, 4000);
+    }, 2000);
   }
 
   ngOnInit() {

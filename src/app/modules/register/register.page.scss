@@ -1,0 +1,38 @@
+.list-form {
+  padding: 0;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+ion-item {
+  background: none;
+  padding: 0;
+  margin: 5px;
+  font-size: 1em;
+  box-shadow: none;
+}
+
+.item-inner {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
+ion-label {
+  font-size: 1em;
+  color: var(--ion-color-primary);
+}
+.item-native {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
+ion-toolbar {
+  margin-bottom: 5vh;    
+}
+
+ion-title {
+    background: var(--ion-color-dark);
+    color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+}
