@@ -19,17 +19,21 @@ export class LoginPage implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
+    const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
+    if (showSplash === 'false') { this.splash = false; }
   }
 
   ionViewDidLoad() {
     // this.tabBarElement.style.display = 'none';
-
-    setTimeout(() => {
-      this.splash = false;
-      // this.tabBarElement.style.display = 'flex';
-      // this.content = document.querySelector('ion-content');
-      // this.content.scrollY = true;
-    }, 2000);
+    if (this.splash !== false) {
+      setTimeout(() => {
+        this.splash = false;
+        sessionStorage.setItem('splash', 'false');
+        // this.tabBarElement.style.display = 'flex';
+        // this.content = document.querySelector('ion-content');
+        // this.content.scrollY = true;
+      }, 2000);
+    }
   }
 
   ngOnInit() {
@@ -37,7 +41,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.router.navigate(['tabs/wall'])
+    this.router.navigate(['tabs/wall']);
   }
 
 }

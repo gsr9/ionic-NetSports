@@ -1,54 +1,73 @@
-<ion-content padding scroll-y=false color="dark">
-  <ion-toolbar>
-    <ion-title color="light">Registro</ion-title>
-  </ion-toolbar>
-  <form (ngSubmit)="register()" #registerForm="ngForm" class="center-content">
-    <!-- <ion-row>
-        <ion-col> -->
-    <!-- <ion-list inset> -->
-    <ion-item color="item">
-      <ion-label floating>
-        <ion-icon name="mail" item-start class="text-primary"></ion-icon>
-      </ion-label>
-      <ion-input type="email" placeholder="Correo Electrónico" ></ion-input>
-    </ion-item>
-    <!-- <p ion-text class="text08"
-      *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
-      <ion-text color="danger">
-        Email incorrecto
-      </ion-text>
-    </p> -->
+<ion-content padding scroll-y=false>
+  <ion-fab vertical="top" horizontal="start" slot="fixed" (click)="navigateBack()">
+    <ion-fab-button>
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class="container">
+    <h1>Registro</h1>
+    <form (ngSubmit)="register()" [formGroup]="registerForm" class="center-content">
+      <ion-item color="item">
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+        <ion-text color="danger">
+          Email incorrecto
+        </ion-text>
+      </p>
 
-    <ion-item>
-      <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
-    </ion-item>
+      <ion-item color="item">
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="text" placeholder="Usuario" formControlName="user"></ion-input>
+      </ion-item>
+      <p ion-text class="text08"
+        *ngIf="registerForm.get('user').touched && registerForm.get('user').hasError('required')">
+        <ion-text color="danger">
+          campo requerido
+        </ion-text>
+      </p>
 
-    <ion-item>
-      <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.email" required>
-      </ion-input>
-    </ion-item>
+      <ion-item color="item">
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Contraseña" formControlName="pass"></ion-input>
+      </ion-item>
+      <p ion-text class="text08"
+        *ngIf="registerForm.get('pass').touched && registerForm.get('pass').hasError('required')">
+        <ion-text color="danger">
+          campo requerido
+        </ion-text>
+      </p>
 
-    <ion-item>
-      <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password"
-        required></ion-input>
-    </ion-item>
+      <ion-item color="item">
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Repetir contraseña" formControlName="pass_conf"></ion-input>
+      </ion-item>
+      <p ion-text class="text08"
+        *ngIf="registerForm.get('pass_conf').touched && registerForm.get('pass_conf').hasError('required')">
+        <ion-text color="danger">
+          campo requerido
+        </ion-text>
+      </p>
+      <p ion-text class="text08" *ngIf="registerForm.hasError('notSame')">
+        <ion-text color="danger">
+          Las contraseñas no coinciden
+        </ion-text>
+      </p>
 
-    <ion-item>
-      <ion-input type="password" placeholder="Confirm Password" name="confirmation_password"
-        [(ngModel)]="registerCredentials.confirmation_password" required></ion-input>
-    </ion-item>
+      <div>
+        <ion-button class="register-btn" color="registerbtn" tappable (click)="register()"
+          [disabled]="!registerForm.valid">Register</ion-button>
+      </div>
 
-    <!-- </ion-list> -->
-    <!-- </ion-col>
-      </ion-row> -->
-
-    <!-- <ion-row>
-        <ion-col class="signup-col"> -->
-    <div>
-      <ion-button class="submit-btn" block type="submit" [disabled]="!registerForm.form.valid">Register</ion-button>
-    </div>
-    <!-- </ion-col>
-      </ion-row> -->
-
-  </form>
+    </form>
+  </div>
 </ion-content>
