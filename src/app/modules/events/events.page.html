@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>events</ion-title>
+    <ion-title>Eventos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item>
+      <ion-label>Deporte</ion-label>
+      <ion-select placeholder="Elige uno">
+        <ion-select-option value="r">Running</ion-select-option>
+        <ion-select-option value="f">Fútbol</ion-select-option>
+        <ion-select-option value="b">Baloncesto</ion-select-option>
+        <ion-select-option value="t">Tenis</ion-select-option>
+        <ion-select-option value="p">Pádel</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" placeholder="Elige fecha" max="2021"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Localidad"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1" offset="9">
+          <ion-button>
+            <ion-icon name="search"></ion-icon>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
 </ion-content>
