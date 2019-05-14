@@ -4,6 +4,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <app-wall-item *ngFor="let item of publications" [title]=item></app-wall-item>
+<ion-content color='primary'>
+  <app-wall-item *ngFor="let item of publications" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario></app-wall-item>
 </ion-content>

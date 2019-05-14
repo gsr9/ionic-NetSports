@@ -5,9 +5,7 @@ const routes: Routes = [
   { path: '', loadChildren: './modules/login/login.module#LoginPageModule'},
   { path: 'tabs', loadChildren: './modules/tabs/tabs.module#TabsPageModule' },
   { path: 'login', loadChildren: './modules/login/login.module#LoginPageModule'},
-  // Podemos dejarlo así o redirigir a una página con un 404 Not Found
   { path: '**', redirectTo: '', pathMatch: 'full' }
-  // { path: 'login', loadChildren: './modules/login/login.module#LoginPageModule' }
 ];
 @NgModule({
   imports: [

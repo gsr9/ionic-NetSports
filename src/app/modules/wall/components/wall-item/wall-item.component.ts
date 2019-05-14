@@ -9,6 +9,9 @@ export class WallItemComponent implements OnInit {
 
 
   @Input() title: string;
+  @Input() descripcion: string;
+  @Input() usuario: string;
+
   constructor() { }
 
   ngOnInit() {}
