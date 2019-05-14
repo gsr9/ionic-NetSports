@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, Form } from '@angular/forms';
 import { Router } from '@angular/router';
+import {UserService} from '../../services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  existe = true;
+  users = []
   splash = true;
   tabBarElement: any;
   content: any;
@@ -17,7 +21,7 @@ export class LoginPage implements OnInit {
     'password': ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router,public fruitsService:UserService) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
     const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
     if (showSplash === 'false') { this.splash = false; }
@@ -41,7 +45,15 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.router.navigate(['tabs/wall']);
+    this.users.forEach(element => {
+      var email = this.onLoginForm.controls.email.value
+      var pass = this.onLoginForm.controls.password.value
+      if(email == element.email && pass == element.pass){
+        this.router.navigate(['tabs/wall'])
+      } else {
+        this.existe = false
+      }
+    });
   }
 
 }
