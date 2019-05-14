@@ -84,6 +84,7 @@
     --ion-color-tint: #a0c2f5;
   }
 
+
   .ion-color-white {
     --ion-color-base: #FFFFFF;
     --ion-color-base-rgb: 255,255,255;
@@ -92,4 +93,15 @@
     --ion-color-shade: #f1faff;
     --ion-color-tint: #a0c2f5;
   }
+}
+  .ion-color-registerbtn {
+    --ion-color-base: #0095c3;
+    --ion-color-base-rgb: 105,187,123;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255,255,255;
+    --ion-color-shade: #f1faff;
+    --ion-color-tint: #a0c2f5;
+  }
+
+  --ion-background-color:#ffffff;
 }
