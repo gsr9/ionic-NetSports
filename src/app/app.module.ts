@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
+import { EventsService } from 'src/app/services/events.service';
 
   // Your web app's Firebase configuration
   export const firebaseConfig = {
@@ -36,6 +37,7 @@ import { UserService } from 'src/app/services/user.service';
     StatusBar,
     SplashScreen,
     UserService,
+    EventsService,
     AngularFireDatabase,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
