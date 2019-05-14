@@ -8,13 +8,13 @@ import {UserService} from '../../services/user.service';
 })
 export class WallPage implements OnInit {
 
-  users = []
+  publications = ["Titulo1","Titulo2","asdfa","kjkj","lkbdskbjdsdsj"]
   constructor(public fruitsService:UserService) {
-    fruitsService.getFruits()
+    /*fruitsService.getFruits()
       .subscribe(fruits=>{
         this.users = fruits;
         console.log(this.users)
-      });//Hacemos una llamada a nuestro servicio, al metodo getFruits y nos devolvera toda la fruta que hay en nuestr abase de datos
+      });*///Hacemos una llamada a nuestro servicio, al metodo getFruits y nos devolvera toda la fruta que hay en nuestr abase de datos
         // y las cargaremos en nuestro array
   }
 
