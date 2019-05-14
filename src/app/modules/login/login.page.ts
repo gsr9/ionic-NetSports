@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, Form } from '@angular/forms';
 import { Router } from '@angular/router';
-import {UserService} from '../../services/user.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {UserService} from '../../services/user.service';
 export class LoginPage implements OnInit {
 
   existe = true;
-  users = []
+  users = [];
   splash = true;
   tabBarElement: any;
   content: any;
@@ -21,10 +21,12 @@ export class LoginPage implements OnInit {
     'password': ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router,public fruitsService:UserService) {
+  constructor(private fb: FormBuilder, private router: Router, public userService: UserService) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
     const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
     if (showSplash === 'false') { this.splash = false; }
+    userService.getUsers()
+      .subscribe(usersdb => { this.users = usersdb; });
   }
 
   ionViewDidLoad() {
@@ -45,15 +47,21 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.users.forEach(element => {
-      var email = this.onLoginForm.controls.email.value
-      var pass = this.onLoginForm.controls.password.value
-      if(email == element.email && pass == element.pass){
-        this.router.navigate(['tabs/wall'])
-      } else {
-        this.existe = false
+    let found = false;
+    for (const user of this.users) {
+      const email = this.onLoginForm.controls.email.value;
+      const pass = this.onLoginForm.controls.password.value;
+      if (email === user.email && pass === user.pass) {
+        found = true;
+        break;
       }
-    });
+    }
+    if (found) {
+      this.router.navigate(['tabs/wall']);
+      this.existe = true;
+    } else {
+      this.existe = false;
+    }
   }
 
 }
