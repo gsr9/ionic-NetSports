@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Storage } from '@ionic/storage';
+import { Story} from '../../shared/models/story.model'
 
 @Component({
   selector: 'app-publication',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicationPage implements OnInit {
 
-  constructor() { }
+ publication: Story;
+
+  usuario: string = "";
+  titulo: string = "";
+  descripcion: string="";
+
+
+  constructor(private storage: Storage) {
+
+    storage.get('publi').then((val) => {
+
+      this.usuario = val.usuario;
+      this.titulo = val.titulo;
+      this.descripcion = val.descripcion;
+    });
+  }
 
   ngOnInit() {
+
   }
+
 
 }

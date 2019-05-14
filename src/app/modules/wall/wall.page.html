@@ -5,5 +5,5 @@
 </ion-header>
 
 <ion-content color='primary'>
-  <app-wall-item *ngFor="let item of publications" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario></app-wall-item>
+  <app-wall-item *ngFor="let item of publications" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario (click)="goToPubli(item)"></app-wall-item>
 </ion-content>
