@@ -9,7 +9,7 @@
   </div>
   <!-- Contenido de la página  -->
   <!-- -->
-  <div class="login-content">
+  <div class="center-content">
     <!-- Logo -->
     <div text-center class="login-content animated fadeInDown">
       <h1>NetSport</h1>
@@ -25,7 +25,7 @@
         <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
       </ion-item>
       <p ion-text class="text08"
-        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').invalid">
         <ion-text color="danger">
           Email incorrecto
         </ion-text>
@@ -89,8 +89,10 @@
 
     <!-- Other links -->
     <p>
-      <span ion-text color="secondary" tappable (click)="register()">¿Aún no tienes cuenta? <strong>
-          Regístrate</strong></span>
+      <span ion-text color="secondary" tappable routerLink="/register" >
+        ¿Aún no tienes cuenta? 
+        <strong>Regístrate</strong>
+      </span>
     </p>
 
   </div>
