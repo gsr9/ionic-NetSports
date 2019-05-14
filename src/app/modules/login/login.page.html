@@ -43,6 +43,12 @@
           Password incorrecto
         </ion-text>
       </p>
+      <p ion-text color="warning" class="text08"
+      *ngIf="!existe">
+      <ion-text color="danger">
+        Usuario/Contraseña no son correctos
+      </ion-text>
+    </p>
     </form>
 
     <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>¿Has olvidado tu
