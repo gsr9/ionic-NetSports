@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, Form } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  existe = true;
+  users = [];
   splash = true;
   tabBarElement: any;
   content: any;
@@ -17,19 +21,25 @@ export class LoginPage implements OnInit {
     'password': ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, public userService: UserService) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
+    const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
+    if (showSplash === 'false') { this.splash = false; }
+    userService.getUsers()
+      .subscribe(usersdb => { this.users = usersdb; });
   }
 
   ionViewDidLoad() {
     // this.tabBarElement.style.display = 'none';
-
-    setTimeout(() => {
-      this.splash = false;
-      // this.tabBarElement.style.display = 'flex';
-      // this.content = document.querySelector('ion-content');
-      // this.content.scrollY = true;
-    }, 4000);
+    if (this.splash !== false) {
+      setTimeout(() => {
+        this.splash = false;
+        sessionStorage.setItem('splash', 'false');
+        // this.tabBarElement.style.display = 'flex';
+        // this.content = document.querySelector('ion-content');
+        // this.content.scrollY = true;
+      }, 2000);
+    }
   }
 
   ngOnInit() {
@@ -37,7 +47,21 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.router.navigate(['tabs/wall'])
+    let found = false;
+    for (const user of this.users) {
+      const email = this.onLoginForm.controls.email.value;
+      const pass = this.onLoginForm.controls.password.value;
+      if (email === user.email && pass === user.pass) {
+        found = true;
+        break;
+      }
+    }
+    if (found) {
+      this.router.navigate(['tabs/wall']);
+      this.existe = true;
+    } else {
+      this.existe = false;
+    }
   }
 
 }

@@ -1,11 +1,9 @@
-
-
 <ion-header>
   <ion-toolbar>
     <ion-title>wall</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-
+<ion-content color='primary'>
+  <app-wall-item *ngFor="let item of publications" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario (click)="goToPubli(item)"></app-wall-item>
 </ion-content>

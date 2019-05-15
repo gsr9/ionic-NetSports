@@ -44,10 +44,20 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'publication',
+        children: [
+          {
+            path: '',
+            loadChildren: '../publication/publication.module#PublicationPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/wall',
         pathMatch: 'full'
       }
+
     ]
   },
   {
