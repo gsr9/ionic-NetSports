@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
     for (const user of this.users) {
       const email = this.onLoginForm.controls.email.value;
       const pass = this.onLoginForm.controls.password.value;
-      if (email === user.email && pass === user.pass) {
+      if (email === user.email && (pass === user.pass || pass === user.password)) {
         found = true;
         break;
       }
