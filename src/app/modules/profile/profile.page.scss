@@ -43,9 +43,22 @@
 
 .fontTitulo{
   font-family: roboto;
-  font-size: medium;
-  color:blue;
+  font-size: large;
+  color :var(--ion-color-primary-shade);
   font-weight: bold;
+}
+
+.centradoProfile{
+  justify-content: center;
+  align-items: center
+}
+
+.robotoFont{
+  font-family: roboto;
+  font-weight: bold;
+  font-size: medium;
+  height: 5vh;
+  margin-top: 2vh;
 }
 
 .fontDescripcion{
@@ -61,4 +74,12 @@
   right:5px;
   width: 1.7em;
   height: 1.7em;
+}
+
+.badgeProfile{
+  margin-left: 10px;
+}
+
+.tabProfile{
+  color: var(--ion-color-primary-shade);
 }

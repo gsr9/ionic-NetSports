@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  nombre: string;
+  descripcion: string;
+
+  constructor(private storage: Storage) { 
+    this.nombre = 'Paco';
+    this.descripcion = 'Pues esta sería la descripción de Paco. Preparado pero no mucho.'
+  }
+
+  public segmentChanged(op: string){
+    console.log(op)
+  }
 
   ngOnInit() {
   }
