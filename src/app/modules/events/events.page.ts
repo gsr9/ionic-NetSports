@@ -1,7 +1,10 @@
 import { EventsService } from 'src/app/services/events.service';
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { Event } from 'src/app/event'
+import { Event } from 'src/app/event';
+import { ShowEventPage } from 'src/app/modules/show-event/show-event.page'
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -17,7 +20,7 @@ export class EventsPage implements OnInit {
   showFilter = true;
   selectedSport: String;
   selectedDate: string;
-  constructor(public eventsService: EventsService) { }
+  constructor(public eventsService: EventsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -91,5 +94,9 @@ export class EventsPage implements OnInit {
 
       this.showFilter = false;
     })
+  }
+
+  irA(){
+    this.router.navigate(['show-event'])
   }
 }

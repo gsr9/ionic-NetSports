@@ -40,7 +40,7 @@
     </ion-row>
   </ion-grid>
   
-  <ion-card *ngFor="let item of searchedEventos">
+  <ion-card *ngFor="let item of searchedEventos" (click)="irA()">
     <ion-card-header>
       <ion-card-subtitle>{{item.deporte}}</ion-card-subtitle>
       <ion-card-title>{{item.titulo}}</ion-card-title>
