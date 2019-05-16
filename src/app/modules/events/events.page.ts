@@ -1,6 +1,7 @@
 import { EventsService } from 'src/app/services/events.service';
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
+import { Event } from 'src/app/event'
 
 
 @Component({
@@ -10,8 +11,8 @@ import { formatDate } from '@angular/common';
 })
 export class EventsPage implements OnInit {
 
-  eventos = [];
-  searchedEventos = [];
+  eventos: Event[] = [];
+  searchedEventos: Event[] = [];
   users :String;
   showFilter = true;
   selectedSport: String;
@@ -22,35 +23,42 @@ export class EventsPage implements OnInit {
   }
 
   /*anyadirEvento(){
-    let titulo: String = '¿Partido de tenis?';
-    let fecha: String = '03/11/2019';
-    let deporte: String = 'Tenis';
-    let descripcion: String = '¿Un uno pa uno sin camiseta?';
-    let users: String[] = ['Jonay', 'Guille'];
-    let lugar: String = 'Elche';
-    this.eventsService.createEvent(titulo, fecha, deporte,descripcion, users);
+    let titulo: string = '¿Jugamos una pachanga?';
+    let fecha: string = '03/11/2019';
+    let deporte: string = 'Fútbol';
+    let descripcion: string = '¿A quien le apetece jugar unas pachangas de fútbol este viernes?';
+    let creador: string = 'gsr9@alu.ua.es';
+    let latitud: string = '38.2766427';
+    let longitud: string = '-0.6695075';
+    let users: string[] = ['prueba@prueba.com', 'gcs2@gmail.com'];
+    let lugar: string = 'Elche';
+    this.eventsService.createEvent(titulo, fecha, deporte,descripcion, creador, latitud, longitud, users, lugar);
     this.eventsService.getEvents()
-    .subscribe(events=>{
+    .subscribe((events: Event[])=>{
       this.eventos = events;
       console.log(this.eventos);
     })
     
   }*/
 
-  filtrar(selectedSport: String, selectedDate: string){
+  filtrar(selectedSport: string, selectedDate: string){
     if(this.showFilter){
+      //buscamos los datos del filtro
       this.getEvento(selectedSport, selectedDate);
     }else{
+      //reseteamos el filtro y lo mostramos
+      this.selectedSport = null;
+      this.selectedDate = null;
       this.showFilter = true;
       this.searchedEventos = [];
     }
   }
-  getEvento(selectedSport: String, selectedDate: string){
+  getEvento(selectedSport: string, selectedDate: string){
     this.eventsService.getEvents()
-    .subscribe(events=>{
+    .subscribe((events: Event[])=>{
       this.eventos = events;
       //this.users = events[0].Users[0];
-      //console.log(this.eventos);
+     // console.log(this.eventos);
     
     
       this.selectedSport = selectedSport;
@@ -60,13 +68,12 @@ export class EventsPage implements OnInit {
       }
 
       console.log(this.eventos);
-
       //Buscamos coincidencias
-      for (const evento of this.eventos) {
+      for (const evento of this.eventos) { 
         if(selectedSport){
-          if(evento.Deporte == this.selectedSport){
+          if(evento.deporte == this.selectedSport){
             if(selectedDate){
-              if(this.selectedDate == evento.Fecha){
+              if(this.selectedDate == evento.fecha){
                 this.searchedEventos.push(evento);
               }
             }else{
@@ -75,7 +82,7 @@ export class EventsPage implements OnInit {
           }
         }else{
           if(selectedDate){
-            if(this.selectedDate == evento.Fecha){
+            if(this.selectedDate == evento.fecha){
               this.searchedEventos.push(evento);
             }
           }
