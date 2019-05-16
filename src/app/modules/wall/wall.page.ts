@@ -19,15 +19,14 @@ export class WallPage implements OnInit {
     service.getPublicaciones()
       .subscribe((publicaciones: Story[])=>{
         this.publications = publicaciones;
-        console.log(this.publications)
+        this.storage.set('publis',this.publications)
+
       });
   }
 
-  public goToPubli(item: Story){
+  public goToPubli(id: string){
 
-    //this.selectItem = item;
-    this.storage.set('publi',item)
-    // this.router.navigateByUrl('/tabs/publication')
+     this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
   }
 
   ngOnInit() {
