@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/event';
-import { ActivatedRoute } from '@angular/router';
+import { EventsService } from 'src/app/services/events.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-event',
@@ -9,19 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowEventPage implements OnInit {
 
-  event: any;
+  event: Event;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private router: Router,public eventsService: EventsService) { 
 
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.event = params['evento'];
-      console.log(params)
-      console.log(this.event)
-  });
-
+    this.event = this.eventsService.getShowEvent();
+    if(!this.event){
+      this.router.navigate(['/tabs/events'])
+    }
   }
 
 }

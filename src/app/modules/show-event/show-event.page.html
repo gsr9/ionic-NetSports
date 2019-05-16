@@ -1,9 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> {{event.titulo}}</ion-title>
+    <ion-title> {{event.deporte}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+            <img src="https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Programmer-512.png"/>
+        </ion-avatar>
+        <h3>{{event.titulo}}</h3>
+      </ion-item>
+      <img src="https://www.muypymes.com/wp-content/uploads/2018/03/googlemaps-googledevelopers1-660x330.png"/>
+      <ion-item>
+        <ion-label item-start><p>{{event.fecha}}</p></ion-label>
+        <ion-button item-end><ion-icon name="bicycle"></ion-icon></ion-button>
+      </ion-item>
+      <ion-card-content>
+        <p>{{event.descripcion}}</p>
+      </ion-card-content>
+      <p>{{event.users.length}} personas apuntadas:</p>
+      <ion-list *ngFor="let item of event.users" >
+          <ion-item>
+            <ion-label>{{item}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card>
 </ion-content>

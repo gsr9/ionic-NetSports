@@ -2,7 +2,6 @@ import { EventsService } from 'src/app/services/events.service';
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from '@angular/common';
 import { Event } from 'src/app/event';
-import { ShowEventPage } from 'src/app/modules/show-event/show-event.page'
 import { Router } from '@angular/router';
 
 
@@ -97,7 +96,7 @@ export class EventsPage implements OnInit {
   }
 
   irA(evento){
-    console.log(evento)
-    this.router.navigate(['/tabs/show-event', evento])
+    this.eventsService.setShowEvent(evento);
+    this.router.navigate(['/tabs/show-event'])
   }
 }
