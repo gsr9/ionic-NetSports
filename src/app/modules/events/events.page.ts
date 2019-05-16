@@ -96,7 +96,8 @@ export class EventsPage implements OnInit {
     })
   }
 
-  irA(){
-    this.router.navigate(['show-event'])
+  irA(evento){
+    console.log(evento)
+    this.router.navigate(['/tabs/show-event', evento])
   }
 }

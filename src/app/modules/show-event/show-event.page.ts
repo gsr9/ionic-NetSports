@@ -9,17 +9,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ShowEventPage implements OnInit {
 
-  event: Event;
+  event: any;
 
   constructor(private route: ActivatedRoute) { 
-    this.route.params.subscribe(params => {
-      this.event = params['evento']; 
- });
-    
+
   }
 
   ngOnInit() {
-    console.log(this.event);
+    this.route.queryParams.subscribe(params => {
+      this.event = params['evento'];
+      console.log(params)
+      console.log(this.event)
+  });
+
   }
 
 }
