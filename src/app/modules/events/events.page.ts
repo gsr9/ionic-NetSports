@@ -19,6 +19,10 @@ export class EventsPage implements OnInit {
   showFilter = true;
   selectedSport: String;
   selectedDate: string;
+  filtro: Boolean[] = [false,false,false,false];
+  encontradosfiltro: Boolean[] =[false,false,false,false];
+  selectedUser: string;
+  selectedLocation: string;
   constructor(public eventsService: EventsService, private router: Router) { }
 
   ngOnInit() {
@@ -43,54 +47,73 @@ export class EventsPage implements OnInit {
     
   }*/
 
-  filtrar(selectedSport: string, selectedDate: string){
+  filtrar(selectedSport: string, selectedDate: string, selectedUser: string, selectedLocation: string){
     if(this.showFilter){
       //buscamos los datos del filtro
-      this.getEvento(selectedSport, selectedDate);
+      this.getEvento(selectedSport, selectedDate, selectedUser, selectedLocation);
     }else{
       //reseteamos el filtro y lo mostramos
       this.selectedSport = null;
       this.selectedDate = null;
+      this.selectedUser = null;
+      this.selectedLocation = null;
       this.showFilter = true;
       this.searchedEventos = [];
     }
   }
-  getEvento(selectedSport: string, selectedDate: string){
+  getEvento(selectedSport: string, selectedDate: string, selectedUser: string, selectedLocation: string){
     this.eventsService.getEvents()
     .subscribe((events: Event[])=>{
       this.eventos = events;
       //this.users = events[0].Users[0];
      // console.log(this.eventos);
     
-    
-      this.selectedSport = selectedSport;
+      if(selectedSport){
+        this.selectedSport = selectedSport;
+        this.filtro[0] = true;
+      }
+      
       //convertir de ISO 8601 a dia/mes/año
       if(selectedDate){
         this.selectedDate = formatDate(selectedDate, 'dd/MM/yyyy', 'en-US');
+        this.filtro[1] = true;
+      }
+
+      if(selectedUser){
+        this.selectedUser = selectedUser.toLowerCase();
+        this.filtro[2] = true;
+      }
+
+      if(selectedLocation){
+        this.selectedLocation = selectedLocation.toLowerCase();
+        this.filtro[3] = true;
       }
 
       console.log(this.eventos);
-      //Buscamos coincidencias
-      for (const evento of this.eventos) { 
-        if(selectedSport){
-          if(evento.deporte == this.selectedSport){
-            if(selectedDate){
-              if(this.selectedDate == evento.fecha){
-                this.searchedEventos.push(evento);
-              }
-            }else{
-              this.searchedEventos.push(evento);
-            }
-          }
-        }else{
-          if(selectedDate){
-            if(this.selectedDate == evento.fecha){
-              this.searchedEventos.push(evento);
-            }
-          }
+
+      for(const evento of this.eventos){
+        if(evento.deporte == this.selectedSport){
+          this.encontradosfiltro[0] = true;
         }
+        if(evento.fecha == this.selectedDate){
+          this.encontradosfiltro[1] = true;
+        }
+        
+        if(evento.creador.toLowerCase() == this.selectedUser){
+          this.encontradosfiltro[2] = true;
+        }
+        if(evento.lugar.toLowerCase() == this.selectedLocation){
+          this.encontradosfiltro[3] = true;
+        }
+        if(this.compararFiltros(this.filtro, this.encontradosfiltro)){
+          this.searchedEventos.push(evento);
+        }
+
+        this.encontradosfiltro = [false,false,false,false];
       }
 
+      //console.log(this.searchedEventos)
+      this.filtro = [false,false,false,false];
       this.showFilter = false;
     })
   }
@@ -98,5 +121,16 @@ export class EventsPage implements OnInit {
   irA(evento){
     this.eventsService.setShowEvent(evento);
     this.router.navigate(['/tabs/show-event'])
+  }
+
+  compararFiltros(filtro1: Boolean[], filtro2: Boolean[]){
+    var iguales: boolean = true;
+    for(var i=0; i<=filtro1.length;i++){
+      if(filtro1[i] != filtro2[i]){
+        iguales = false;
+      }
+    }
+
+    return iguales;
   }
 }

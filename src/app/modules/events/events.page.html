@@ -21,19 +21,19 @@
       <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" placeholder="Elige fecha" max="2021" [(ngModel)]="selectedDate"></ion-datetime>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Usuario"></ion-input>
+      <ion-input placeholder="Usuario" [(ngModel)]="selectedUser"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Localidad"></ion-input>
+      <ion-input placeholder="Localidad" [(ngModel)]="selectedLocation"></ion-input>
     </ion-item>
   </ion-list>
   <ion-grid>
     <ion-row>
       <ion-col size="1" offset="9">
-          <ion-button *ngIf="showFilter" tappable (click)="filtrar(selectedSport, selectedDate)">
+          <ion-button *ngIf="showFilter" tappable (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
             <ion-icon name="search" ></ion-icon>
           </ion-button>
-          <ion-button *ngIf="!showFilter" tappable (click)="filtrar(selectedSport, selectedDate)">
+          <ion-button *ngIf="!showFilter" tappable (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
             <ion-icon name="list" ></ion-icon>
           </ion-button>
       </ion-col>
