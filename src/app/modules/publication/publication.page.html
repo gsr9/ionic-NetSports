@@ -7,16 +7,6 @@
 <ion-content>
   <ion-card color='white'>
     <ion-card-header>
-      <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
-      <ion-card-title>{{titulo}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{descripcion}}
-      <ion-card-title>Comentarios</ion-card-title>
-    </ion-card-content>
-  </ion-card>
-  <ion-card color='white'>
-    <ion-card-content>
       <ion-grid>
         <ion-row>
           <ion-col size="3">
@@ -25,12 +15,32 @@
             </ion-avatar>
           </ion-col>
           <ion-col>
-          {{descripcion}}
+          <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-card-title>{{titulo}}</ion-card-title>
+        </ion-row>
       </ion-grid>
-
-
+    </ion-card-header>
+    <ion-card-content>
+      {{descripcion}}
     </ion-card-content>
   </ion-card>
+  <ion-card color='white'>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-card-title>Comentarios</ion-card-title>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Enter Input"></ion-input><ion-button>Default</ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+        <app-comments></app-comments>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
