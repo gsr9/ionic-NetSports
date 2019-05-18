@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController, IonNavPush } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { RegisterService } from './register.service';
 
 @Component({
   selector: 'app-register',
@@ -24,29 +25,24 @@ export class RegisterPage implements OnInit {
     // private auth: AuthServiceProvider,
     private alertCtrl: AlertController,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private registerService: RegisterService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.registerForm.dirty) {
+      this.registerForm.reset();
+    }
+  }
 
   public register() {
     // Llamar al servicio que guarda el usuario si todo ha ido bien mostramos popup,
     // sino volvemos al form con mensaje de error/popup
-
+    const email = this.registerForm.controls.email.value;
+    const password = this.registerForm.controls.pass.value;
+    const username = this.registerForm.controls.user.value;
+    this.registerService.addUser(email, username, password, 'amateur');
     this.showPopup();
-    // this.auth.register(this.registerCredentials).subscribe(success => {
-    //   if (success) {
-    //     this.createSuccess = true;
-    //     this.showPopup("Success", "Account created.");
-    //   } else {
-    //     this.showPopup("Error", "Problem creating account.");
-    //   }
-    // },
-    //   error => {
-    //     this.showPopup("Error", error);
-    //   }
-    // );
-
   }
 
   async showPopup() {
