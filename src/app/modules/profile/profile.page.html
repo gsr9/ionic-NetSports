@@ -17,8 +17,8 @@
   <div class="parteAbajo">
       
       <ion-segment class="tabProfile" color="secondary" (ionChange)="segmentChanged($event.target.value)">
-          <ion-segment-button value="historias">
-            <ion-label class="robotoFont">Historias <ion-badge class="badgeProfile" color="primary">99</ion-badge></ion-label>
+          <ion-segment-button value="historias" checked>
+            <ion-label class="robotoFont">Historias <ion-badge class="badgeProfile" color="primary">{{numStories}}</ion-badge></ion-label>
           </ion-segment-button>
           <ion-segment-button value="seguidores">
             <ion-label class="robotoFont">Seguidores <ion-badge class="badgeProfile" color="primary">99</ion-badge></ion-label>
@@ -27,6 +27,22 @@
             <ion-label class="robotoFont">Seguidos <ion-badge class="badgeProfile" color="primary">99</ion-badge></ion-label>
           </ion-segment-button>
         </ion-segment>
+
+      <ion-grid *ngIf="historias">
+        <ion-row>
+          <ion-col *ngFor="let item of stories;" size=4>
+              <app-historia-profile item [name]=item>
+
+              </app-historia-profile>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid *ngIf="seguidores">
+        Adios
+      </ion-grid>
+      <ion-grid *ngIf="seguidos">
+        JEJEJE
+      </ion-grid>
 
   </div>
 
