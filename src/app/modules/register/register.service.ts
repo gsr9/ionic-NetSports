@@ -13,7 +13,5 @@ export class RegisterService {
   addUser(email: string, username: string, password: string, level: string) {
     const user = new User(email, username, password, level);
     const result = this.firebaseService.database.ref('/users').push(user);
-    debugger
-    console.log('Resultado', result);
   }
 }

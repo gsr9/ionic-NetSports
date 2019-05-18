@@ -29,7 +29,11 @@ export class RegisterPage implements OnInit {
     private registerService: RegisterService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.registerForm.dirty) {
+      this.registerForm.reset();
+    }
+  }
 
   public register() {
     // Llamar al servicio que guarda el usuario si todo ha ido bien mostramos popup,
@@ -39,19 +43,6 @@ export class RegisterPage implements OnInit {
     const username = this.registerForm.controls.user.value;
     this.registerService.addUser(email, username, password, 'amateur');
     this.showPopup();
-    // this.auth.register(this.registerCredentials).subscribe(success => {
-    //   if (success) {
-    //     this.createSuccess = true;
-    //     this.showPopup("Success", "Account created.");
-    //   } else {
-    //     this.showPopup("Error", "Problem creating account.");
-    //   }
-    // },
-    //   error => {
-    //     this.showPopup("Error", error);
-    //   }
-    // );
-
   }
 
   async showPopup() {
