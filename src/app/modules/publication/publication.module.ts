@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-import { WallItemComponent } from './components/wall-item/wall-item.component';
-import { WallPage } from './wall.page';
+
+import { PublicationPage } from './publication.page';
+import { CommentsComponent} from './comments/comments.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: WallPage
+    component: PublicationPage
   }
 ];
 
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [WallItemComponent,WallPage]
+  declarations: [PublicationPage,CommentsComponent]
 })
-export class WallPageModule {}
+export class PublicationPageModule {}
