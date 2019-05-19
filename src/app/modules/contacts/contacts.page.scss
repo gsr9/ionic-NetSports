@@ -1,0 +1,38 @@
+.fondo{
+    background-color: var(--ion-color-primary);
+    height: 20vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputUser{
+    --background: white;
+    width: 86vw;
+    font-size: small;
+    margin-left: 6vw;
+    margin-top: 6vh;
+    position: absolute;
+    --padding-start: 1vh;
+}
+
+.botonAv{
+    position: absolute;
+    right: 9vw;
+    top: 7.5vh;
+}
+
+.divlista{
+    top: 21vh;
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+}
+
+.fotoRedonda{
+    border-radius: 100px;
+}
+
+.sombras{
+    box-shadow: 5px 5px 2px grey;
+}

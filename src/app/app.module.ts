@@ -14,6 +14,8 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
 
+import { OptbusquedaComponent } from 'src/app/components/optbusqueda/optbusqueda.component';
+
   // Your web app's Firebase configuration
   export const firebaseConfig = {
     apiKey: "AIzaSyARw1xEM6-NtU5yWhPtxzu3eIquNIKIPE8",
@@ -26,8 +28,8 @@ import { UserService } from 'src/app/services/user.service';
   };
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, OptbusquedaComponent],
+  entryComponents: [OptbusquedaComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,

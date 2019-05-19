@@ -1,9 +1,27 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>contacts</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div class="fondo">
+        <ion-searchbar class="inputUser" (keyup.enter)="buscar(username)" [(ngModel)]="username" placeholder="Nombre de usuario" id="userReq"></ion-searchbar>
+        <div style="position: absolute;right: 12vw;top: 7.5vh;">
+        <ion-button size="small" shape="round" color="light" fill="solid" (click)="notifications()">
+          <ion-icon name="hammer"></ion-icon>
+        </ion-button>
+        </div>
+    <div class="divlista">
+        <ion-label *ngIf="buscado==false" class="centrado">Listo para buscar usuarios.</ion-label>
+        <ion-label *ngIf="buscado==true && encontrado==false" class="centrado">No se han encontrado usuarios.</ion-label>
+        <ion-grid *ngIf="buscado==true && encontrado==true" class="centrado">
+            <ion-row>
+                <ion-col size=4 col-6 col-md-4 col-xl-3 *ngFor="let image of coincidentes">
+                  <div class="sombras">
+                      <img src="http://www.clker.com/cliparts/0/c/c/8/1370374208497599281black_female_business_user-1-md.png" class="fotoRedonda"/>
+                      <p>{{ image.username }}</p>
+                  </div>
+                </ion-col>
+              </ion-row>
+        </ion-grid>    
+    </div>
+  </div>
 </ion-content>
