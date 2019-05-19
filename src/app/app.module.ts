@@ -14,7 +14,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
 import { EventsService } from 'src/app/services/events.service';
-
+import { IonicStorageModule } from '@ionic/storage';
   // Your web app's Firebase configuration
   export const firebaseConfig = {
     apiKey: "AIzaSyARw1xEM6-NtU5yWhPtxzu3eIquNIKIPE8",
@@ -32,7 +32,8 @@ import { EventsService } from 'src/app/services/events.service';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule],
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

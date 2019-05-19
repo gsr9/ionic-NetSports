@@ -4,8 +4,6 @@ import { formatDate } from '@angular/common';
 import { Event } from 'src/app/event';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-events',
   templateUrl: './events.page.html',
@@ -14,6 +12,7 @@ import { Router } from '@angular/router';
 export class EventsPage implements OnInit {
 
   eventos: Event[] = [];
+  pruebas: Event[] = [];
   searchedEventos: Event[] = [];
   users :String;
   showFilter = true;
@@ -62,11 +61,16 @@ export class EventsPage implements OnInit {
     }
   }
   getEvento(selectedSport: string, selectedDate: string, selectedUser: string, selectedLocation: string){
+    /*this.eventsService.prueba()
+    .subscribe((prueba: Event[]) =>{
+      this.pruebas = prueba
+      console.log(this.pruebas)
+    });*/
     this.eventsService.getEvents()
     .subscribe((events: Event[])=>{
       this.eventos = events;
       //this.users = events[0].Users[0];
-     // console.log(this.eventos);
+      console.log(this.eventos);
     
       if(selectedSport){
         this.selectedSport = selectedSport;

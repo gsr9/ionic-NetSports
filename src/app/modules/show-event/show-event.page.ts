@@ -1,7 +1,9 @@
+import { Storage } from '@ionic/storage';
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/event';
 import { EventsService } from 'src/app/services/events.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-show-event',
@@ -17,11 +19,14 @@ export class ShowEventPage implements OnInit {
   encontrado = false;
   borrar: number;
 
-  constructor(private router: Router,public eventsService: EventsService) { 
+  constructor(private router: Router,private eventsService: EventsService, private storage: Storage) { 
 
   }
 
   ngOnInit() {
+    this.storage.get('user').then((val) => {
+      //console.log('Your age is', val);
+    });
     this.event = this.eventsService.getShowEvent();
     this.latitud = parseFloat(this.event.latitud);
     this.longitud = parseFloat(this.event.longitud);
@@ -43,6 +48,7 @@ export class ShowEventPage implements OnInit {
     this.event.users.push(this.user);
     this.encontrado = true;
     console.log(this.event.users)
+    this.eventsService.updateEvent(this.event);
   }
 
   desapuntarUser(){
@@ -54,6 +60,7 @@ export class ShowEventPage implements OnInit {
     if(this.borrar){
       this.event.users.splice(this.borrar,1);
       this.encontrado = false;
+      this.eventsService.updateEvent(this.event);
     }
     console.log(this.event.users)
   }

@@ -8,4 +8,5 @@ export interface Event {
     longitud: string;
     users: string[];
     lugar: string;
+    key: string;
 }
