@@ -32,7 +32,7 @@
         <ion-grid>
           <ion-row>
             <ion-col *ngFor="let item of stories;" size=4>
-                <app-historia-profile [name]=item.titulo>
+                <app-historia-profile (click)="goToPubli(item)" [name]=item.titulo>
 
                 </app-historia-profile>
             </ion-col>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { PublicacionesService } from 'src/app/services/publicaciones.service'
 import { Story } from 'src/app/shared/models/story.model'
+import { Router } from '@angular/router'
 import { User } from 'src/app/shared/models/user.model'
 
 @Component({
@@ -22,12 +23,14 @@ export class ProfilePage implements OnInit {
   numStories: number;
 
 
-  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService) { 
+  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) { 
     this.nombre = 'Paco';
     this.descripcion = 'Pues esta sería la descripción de Paco. Preparado pero no mucho.'
     this.historias = true
     this.seguidores = false
     this.seguidos = false
+
+    this.storage.remove('publi')
 
     servicioPublicaciones.getPublicaciones()
       .subscribe((publicaciones: Story[])=>{
@@ -38,7 +41,6 @@ export class ProfilePage implements OnInit {
   }
 
   public segmentChanged(op: string){
-    console.log(op)
     if(op=="historias"){
       this.historias = true
       this.seguidores = false
@@ -52,10 +54,16 @@ export class ProfilePage implements OnInit {
       this.seguidores = false
       this.seguidos = true
     }
+  }
 
+  public goToPubli(item: Story){
+    this.storage.set('publi',item)
+    console.log(item)
+    this.router.navigateByUrl('/tabs/publication')
   }
 
   ngOnInit() {
+
   }
 
 }
