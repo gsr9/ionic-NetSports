@@ -71,12 +71,19 @@ event   */
     var niv = await this.storage.get('niv');
     this.mostrarBA = false;
     
+    if(dep == ''){
+      dep = "edfwrewge";
+    }
+    if(niv == ''){
+      niv = "refefgrtg";
+    }
+
     this.coincidentes = [];
     this.found = false;
     this.encontrado = false;
     this.buscado = true;
     for (const user of this.users) {
-      //console.log(user.username)
+      console.log(user.username)
       if (user.level.includes(niv) || user.deporte.includes(dep)) {
         this.found = true;
         this.coincidentes.push(user)
