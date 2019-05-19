@@ -1,6 +1,8 @@
 export class Story {
-    title: string;
-    description: string;
-    likes: Map<string, string>; // id - nombre usuario
-    images: string;
+    titulo: string;
+    descripcion: string;
+    likes: string;
+    //likes: Map<string, string>; // id - nombre usuario
+    //images: string;
+    usuario:string;
 }

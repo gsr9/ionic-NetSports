@@ -13,6 +13,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
+import { PublicacionesService} from 'src/app/services/publicaciones.service';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { OptbusquedaComponent } from 'src/app/components/optbusqueda/optbusqueda.component';
 
@@ -33,12 +35,15 @@ import { OptbusquedaComponent } from 'src/app/components/optbusqueda/optbusqueda
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule],
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     UserService,
     AngularFireDatabase,
+    PublicacionesService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
