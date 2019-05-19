@@ -5,6 +5,7 @@ export class User {
     name: string;
     password: string;
     level: string;
+    description: string;
     followers: Map<string, string>; // id - nombre usuario
     following: Map<string, string>; // id - nombre usuario
     stories: Story[];
