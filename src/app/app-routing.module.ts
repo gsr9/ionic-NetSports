@@ -9,6 +9,9 @@ const routes: Routes = [
   // Podemos dejarlo así o redirigir a una página con un 404 Not Found
   { path: '**', redirectTo: '', pathMatch: 'full' },
   // { path: 'login', loadChildren: './modules/login/login.module#LoginPageModule' }
+  {path: 'forgotpass', loadChildren: './modules/forgotpass/forgotpass.module#ForgotpassPageModule' },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
+
 ];
 @NgModule({
   imports: [

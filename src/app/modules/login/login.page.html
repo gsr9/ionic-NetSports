@@ -1,100 +1,96 @@
 <ion-content scroll-y=false class="auth-page" color="tertiary">
-  <div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
-    <div class="flb">
-      <div class="Aligner-item Aligner-item--top"></div>
-      <!-- <ion-title>NetSport</ion-title> -->
-      <img src="https://cdn.dribbble.com/users/662463/screenshots/2885730/character_jogger_01.gif">
-      <div class="Aligner-item Aligner-item--bottom"></div>
+    <div id="custom-overlay" [style.display]="splash ? 'flex' : 'none'">
+        <div class="flb">
+            <div class="Aligner-item Aligner-item--top"></div>
+            <!-- <ion-title>NetSport</ion-title> -->
+            <img src="https://cdn.dribbble.com/users/662463/screenshots/2885730/character_jogger_01.gif">
+            <div class="Aligner-item Aligner-item--bottom"></div>
+        </div>
     </div>
-  </div>
-  <!-- Contenido de la página  -->
-  <!-- -->
-  <div class="center-content">
-    <!-- Logo -->
-    <div text-center class="login-content animated fadeInDown">
-      <h1>NetSport</h1>
-      <div class="logo"></div>
-    </div>
+    <!-- Contenido de la página  -->
+    <!-- -->
+    <div class="center-content">
+        <!-- Logo -->
+        <div text-center class="login-content animated fadeInDown">
+            <h1>NetSport</h1>
+            <div class="logo"></div>
+        </div>
 
-    <!-- Login form -->
-    <form [formGroup]="onLoginForm" class="list-form">
-      <ion-item color="item">
-        <ion-label floating>
-          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
-        </ion-label>
-        <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
-      </ion-item>
-      <p ion-text class="text08"
-        *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').invalid">
-        <ion-text color="danger">
-          Email incorrecto
-        </ion-text>
-      </p>
+        <!-- Login form -->
+        <form [formGroup]="onLoginForm" class="list-form">
+            <ion-item color="item">
+                <ion-label floating>
+                    <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+                </ion-label>
+                <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
+            </ion-item>
+            <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').invalid">
+                <ion-text color="danger">
+                    Email incorrecto
+                </ion-text>
+            </p>
 
-      <ion-item color="item">
-        <ion-label floating>
-          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
-        </ion-label>
-        <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
-      </ion-item>
-      <p ion-text color="warning" class="text08"
-        *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
-        <ion-text color="danger">
-          Password incorrecto
-        </ion-text>
-      </p>
-      <p ion-text color="warning" class="text08"
-      *ngIf="!existe">
-      <ion-text color="danger">
-        Usuario/Contraseña no son correctos
-      </ion-text>
-    </p>
-    </form>
+            <ion-item color="item">
+                <ion-label floating>
+                    <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                </ion-label>
+                <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+            </ion-item>
+            <p ion-text color="warning" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+                <ion-text color="danger">
+                    Password incorrecto
+                </ion-text>
+            </p>
+            <p ion-text color="warning" class="text08" *ngIf="!existe">
+                <ion-text color="danger">
+                    Usuario/Contraseña no son correctos
+                </ion-text>
+            </p>
+        </form>
 
-    <p text-right ion-text color="secondary" tappable (click)="forgotPass()"><strong>¿Has olvidado tu
+        <p text-right ion-text color="secondary" tappable routerLink="/forgotpass"><strong>¿Has olvidado tu
         contraseña?</strong></p>
 
-    <div class="login-content">
-      <ion-button class="login-button" icon-start block tappable (click)="login()"
-      [disabled]="!onLoginForm.valid">
-        <ion-icon name="log-in"></ion-icon>
-        Acceder
-      </ion-button>
+        <div class="login-content">
+            <ion-button class="login-button" icon-start block tappable (click)="login()" [disabled]="!onLoginForm.valid">
+                <ion-icon name="log-in"></ion-icon>
+                Acceder
+            </ion-button>
 
-      <!-- <p text-center ion-text text-primary>O entra con:</p> -->
-      <hr>
+            <!-- <p text-center ion-text text-primary>O entra con:</p> -->
+            <hr>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col col-4>
-            <button ion-button icon-only block class="btn btn-facebook">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-4>
+                        <button ion-button icon-only block class="btn btn-facebook">
               <ion-icon name="logo-facebook"></ion-icon>
             </button>
-          </ion-col>
-          <ion-col col-4>
-            <button ion-button icon-only block class="btn btn-twitter">
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-button icon-only block class="btn btn-twitter">
               <ion-icon name="logo-twitter"></ion-icon>
             </button>
-          </ion-col>
-          <ion-col col-4>
-            <button ion-button icon-only block class="btn btn-gplus">
+                    </ion-col>
+                    <ion-col col-4>
+                        <button ion-button icon-only block class="btn btn-gplus">
               <ion-icon name="logo-googleplus"></ion-icon>
             </button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
 
-    </div>
+        </div>
 
 
-    <!-- Other links -->
-    <p>
-      <span ion-text color="secondary" tappable routerLink="/register" >
+        <!-- Other links -->
+        <p>
+            <span ion-text color="secondary" tappable routerLink="/register">
         ¿Aún no tienes cuenta? 
         <strong>Regístrate</strong>
       </span>
-    </p>
+        </p>
 
-  </div>
+    </div>
 
 </ion-content>
