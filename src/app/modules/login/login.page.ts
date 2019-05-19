@@ -11,7 +11,6 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   existe = true;
   users = [];
   splash = true;
@@ -45,7 +44,7 @@ export class LoginPage implements OnInit {
     this.ionViewDidLoad();
   }
 
-  login() {
+  async login() {
     const email = this.onLoginForm.controls.email.value;
     const pass = this.onLoginForm.controls.password.value;
 

@@ -12,9 +12,9 @@ export class LoginService {
     private userService: UserService,
     private storage: Storage) { }
 
-  login(email: string, pass: string) {
+  async login(email: string, pass: string) {
     let found = false;
-    this.userService.getUsers().subscribe( (usersdb: User[]) => {
+    await this.userService.getUsers().subscribe( (usersdb: User[]) => {
       for (const user of usersdb) {
         if (email === user.email && pass === user.password) {
           found = true;
