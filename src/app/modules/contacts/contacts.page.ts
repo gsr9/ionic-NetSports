@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { OptbusquedaComponent } from './../../components/optbusqueda/optbusqueda.component';
+import { OptbusquedaComponent } from './components/optbusqueda/optbusqueda.component';
 import { PopoverController } from '@ionic/angular';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, Validators, Form } from '@angular/forms';
+import { Storage } from '@ionic/storage'
+
 
 @Component({
   selector: 'app-contacts',
@@ -11,6 +13,7 @@ import { FormBuilder, Validators, Form } from '@angular/forms';
 })
 export class ContactsPage implements OnInit {
 
+  mostrarBA = false;
   found = false;
   users=[];
   coincidentes=[];
@@ -20,19 +23,17 @@ export class ContactsPage implements OnInit {
     'userReq': ['',Validators.min(1)]
   });
 
-  constructor(public popoverController: PopoverController,public userService: UserService, private fb: FormBuilder) { 
+  constructor(public storage: Storage, public userService: UserService, private fb: FormBuilder) { 
     userService.getUsers()
       .subscribe(usersdb => { this.users = usersdb; });
   }
 
   async notifications(ev: any) {
-    const popover = await this.popoverController.create({
-        component: OptbusquedaComponent,
-        event: ev,
-        animated: true,
-        showBackdrop: true
-    });
-    return await popover.present();
+    if(this.mostrarBA){
+      this.mostrarBA = false;
+    }else {
+      this.mostrarBA = true;
+    }
 }
 
   ngOnInit() {
@@ -50,6 +51,33 @@ export class ContactsPage implements OnInit {
     for (const user of this.users) {
       //console.log(user.username)
       if (user.username.includes(username)) {
+        this.found = true;
+        this.coincidentes.push(user)
+      }
+    }
+    console.log(this.coincidentes)
+    if (this.found) {
+      this.encontrado = true;
+    } else {
+      this.encontrado = false;
+    }
+  }
+
+  /**
+   * busquedaAve
+event   */
+  public async busquedaAve(event) {
+    var dep = await this.storage.get('dep');
+    var niv = await this.storage.get('niv');
+    this.mostrarBA = false;
+    
+    this.coincidentes = [];
+    this.found = false;
+    this.encontrado = false;
+    this.buscado = true;
+    for (const user of this.users) {
+      //console.log(user.username)
+      if (user.level.includes(niv) || user.deporte.includes(dep)) {
         this.found = true;
         this.coincidentes.push(user)
       }

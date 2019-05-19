@@ -3,7 +3,7 @@
 
   <ion-item>
     <ion-label>Nivel</ion-label>
-    <ion-select placeholder="Selecciona una...">
+    <ion-select [(ngModel)]="nivel" placeholder="Selecciona una...">
       <ion-select-option value="novato">Novato</ion-select-option>
       <ion-select-option value="amateur">Amateur</ion-select-option>
       <ion-select-option value="profesional">Profesional</ion-select-option>
@@ -12,7 +12,7 @@
 
   <ion-item>
     <ion-label>Deporte</ion-label>
-    <ion-select placeholder="Selecciona una...">
+    <ion-select [(ngModel)]="deporte" placeholder="Selecciona una...">
       <ion-select-option value="futbol">Futbol</ion-select-option>
       <ion-select-option value="tenis">Tenis</ion-select-option>
       <ion-select-option value="baloncesto">Baloncesto</ion-select-option>
