@@ -17,6 +17,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'publication',
+        children: [
+          {
+            path: '',
+            loadChildren: '../publication/publication.module#PublicationPageModule'
+          }
+        ]
+      },
+      {
         path: 'contacts',
         children: [
           {
@@ -40,15 +49,6 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../profile/profile.module#ProfilePageModule'
-          }
-        ]
-      },
-      {
-        path: 'publication',
-        children: [
-          {
-            path: '',
-            loadChildren: '../publication/publication.module#PublicationPageModule'
           }
         ]
       },
