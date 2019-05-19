@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="forgotForm" class="list-form">
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="checkMail()">
+      <ion-text color="danger">
+        Email incorrecto
+      </ion-text>
+    </p>
+
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Contraseña" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Repetir contraseña" formControlName="password"></ion-input>
+    </ion-item>
+    <p ion-text color="warning" class="text08"
+      *ngIf="forgotForm.get('password').touched && forgotForm.get('password').hasError('required')">
+      <ion-text color="danger">
+        Password incorrecto
+      </ion-text>
+    </p>
+  </form>
+  <ion-button class="login-button" icon-start block tappable (click)="login()" [disabled]="!forgotForm.valid">
+    <ion-icon name="log-in"></ion-icon>
+    Acceder
+  </ion-button>
+</ion-content>
