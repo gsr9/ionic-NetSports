@@ -16,14 +16,20 @@ export class ProfilePage implements OnInit {
 
   name = '';
   level = '';
+  description = '';
 
   historias: boolean;
   seguidores: boolean;
   seguidos: boolean;
 
   stories: Story[] = [];
-
   numStories: number;
+
+  followers: string[] = ['Pavo', 'Jose', 'Maria', '50Cent', '2Pac', 'ElNiñoWey']
+  numFollowers: number;
+
+  following: string[] = ['Uno', 'Otro', 'EL CHOCU', 'Jaja', 'xd', 'lul', 'uwu', 'OwO']
+  numFollowing: number;
 
 
   constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) {
@@ -31,6 +37,9 @@ export class ProfilePage implements OnInit {
     this.historias = true
     this.seguidores = false
     this.seguidos = false
+
+    this.numFollowers = this.followers.length
+    this.numFollowing = this.following.length
 
     this.storage.remove('publi')
   }
@@ -51,25 +60,25 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  public goToPubli(item: Story) {
-    this.storage.set('publi', item)
-    console.log(item)
-    this.router.navigateByUrl('/tabs/publication')
-  }
+  public goToPubli(id: string){
+
+    this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
+ }
 
   ngOnInit() {
     this.storage.get('user').then((val: User) => {
       this.usuario = val;
-      debugger
       this.name = this.usuario.username;
       this.level = this.usuario.level;
-    })
-    this.servicioPublicaciones.getPublicaciones()
+      this.description = this.usuario.description;
+
+      this.servicioPublicaciones.getPublicacionesFromUsuario(this.name)
       .subscribe((publicaciones: Story[]) => {
         this.stories = publicaciones;
         this.numStories = this.stories.length
         //console.log(this.stories)
       });
+    })
   }
 
 }

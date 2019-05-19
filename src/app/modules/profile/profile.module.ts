@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {HistoriaProfileComponent} from 'src/app/historia-profile/historia-profile.component'
+import {ItemUsuarioComponent} from 'src/app/item-usuario/item-usuario.component'
 
 import { IonicModule } from '@ionic/angular';
 
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ProfilePage, HistoriaProfileComponent]
+  declarations: [ProfilePage, HistoriaProfileComponent, ItemUsuarioComponent]
 })
 export class ProfilePageModule {}
