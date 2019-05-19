@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import {HistoriaProfileComponent} from 'src/app/historia-profile/historia-profile.component'
+import { PublicacionesService } from 'src/app/services/publicaciones.service'
+import { Story } from 'src/app/shared/models/story.model'
+import { User } from 'src/app/shared/models/user.model'
 
 @Component({
   selector: 'app-profile',
@@ -15,19 +17,24 @@ export class ProfilePage implements OnInit {
   seguidores: boolean;
   seguidos: boolean;
 
-  stories: string[] = ['uno', 'dos', 'tres','cuatro','cinco'];
+  stories: Story[] = [];
 
   numStories: number;
 
 
-  constructor(private storage: Storage) { 
+  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService) { 
     this.nombre = 'Paco';
     this.descripcion = 'Pues esta sería la descripción de Paco. Preparado pero no mucho.'
     this.historias = true
     this.seguidores = false
     this.seguidos = false
 
-    this.numStories = this.stories.length
+    servicioPublicaciones.getPublicaciones()
+      .subscribe((publicaciones: Story[])=>{
+        this.stories = publicaciones;
+        this.numStories = this.stories.length
+        //console.log(this.stories)
+      });
   }
 
   public segmentChanged(op: string){

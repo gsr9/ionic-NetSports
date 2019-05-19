@@ -23,4 +23,10 @@ export class PublicacionesService {
       return this.afDB.list('/publicaciones').valueChanges(); 
       //Esta función devolverá todos los datos que tengamos en el apartado fruits, en nuestra base de datos
   }
+
+  public getPublicacionesFromUsuario(usuario: string){
+    return this.afDB.list('/publicaciones', ref =>
+    ref.orderByChild('usuario').equalTo(usuario)
+    ).valueChanges(); 
+  }
 }

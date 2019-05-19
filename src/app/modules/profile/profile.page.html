@@ -27,16 +27,18 @@
             <ion-label class="robotoFont">Seguidos <ion-badge class="badgeProfile" color="primary">99</ion-badge></ion-label>
           </ion-segment-button>
         </ion-segment>
+      
+      <ion-content *ngIf="historias">
+        <ion-grid>
+          <ion-row>
+            <ion-col *ngFor="let item of stories;" size=4>
+                <app-historia-profile [name]=item.titulo>
 
-      <ion-grid *ngIf="historias">
-        <ion-row>
-          <ion-col *ngFor="let item of stories;" size=4>
-              <app-historia-profile item [name]=item>
-
-              </app-historia-profile>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+                </app-historia-profile>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
       <ion-grid *ngIf="seguidores">
         Adios
       </ion-grid>
