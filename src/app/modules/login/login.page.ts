@@ -24,8 +24,8 @@ export class LoginPage implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, public loginService: LoginService) {
     // this.tabBarElement = document.querySelector('ion-tab-bar');
-    const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
-    if (showSplash === 'false') { this.splash = false; }
+    // const showSplash = sessionStorage.getItem('splash') ? sessionStorage.getItem('splash') : '';
+    // if (showSplash === 'false') { this.splash = false; }
   }
 
   ionViewDidLoad() {
