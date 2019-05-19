@@ -15,7 +15,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
 import { PublicacionesService} from 'src/app/services/publicaciones.service';
 import { IonicStorageModule } from '@ionic/storage';
-
   // Your web app's Firebase configuration
   export const firebaseConfig = {
     apiKey: "AIzaSyARw1xEM6-NtU5yWhPtxzu3eIquNIKIPE8",
