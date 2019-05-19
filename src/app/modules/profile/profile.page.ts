@@ -12,7 +12,10 @@ import { User } from 'src/app/shared/models/user.model'
 })
 export class ProfilePage implements OnInit {
 
-  usuario: User = null;
+  usuario: User;
+
+  name = '';
+  level = '';
 
   historias: boolean;
   seguidores: boolean;
@@ -23,8 +26,8 @@ export class ProfilePage implements OnInit {
   numStories: number;
 
 
-  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) { 
-    
+  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) {
+
     this.historias = true
     this.seguidores = false
     this.seguidos = false
@@ -32,12 +35,12 @@ export class ProfilePage implements OnInit {
     this.storage.remove('publi')
   }
 
-  public segmentChanged(op: string){
-    if(op=="historias"){
+  public segmentChanged(op: string) {
+    if (op == "historias") {
       this.historias = true
       this.seguidores = false
       this.seguidos = false
-    } else if (op=="seguidores"){
+    } else if (op == "seguidores") {
       this.historias = false
       this.seguidores = true
       this.seguidos = false
@@ -48,20 +51,21 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  public goToPubli(item: Story){
-    this.storage.set('publi',item)
+  public goToPubli(item: Story) {
+    this.storage.set('publi', item)
     console.log(item)
     this.router.navigateByUrl('/tabs/publication')
   }
 
   ngOnInit() {
-    this.storage.get('user').then((val)=>{
-      this.usuario = val
-      console.log('LOOOOOOOOOOOOOOOOOOOOOOL')
-      console.log(val)
+    this.storage.get('user').then((val: User) => {
+      this.usuario = val;
+      debugger
+      this.name = this.usuario.username;
+      this.level = this.usuario.level;
     })
     this.servicioPublicaciones.getPublicaciones()
-      .subscribe((publicaciones: Story[])=>{
+      .subscribe((publicaciones: Story[]) => {
         this.stories = publicaciones;
         this.numStories = this.stories.length
         //console.log(this.stories)
