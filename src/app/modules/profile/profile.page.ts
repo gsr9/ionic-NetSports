@@ -12,7 +12,7 @@ import { User } from 'src/app/shared/models/user.model'
 })
 export class ProfilePage implements OnInit {
 
-  usuario: User;
+  usuario: User = null;
 
   historias: boolean;
   seguidores: boolean;
@@ -24,16 +24,7 @@ export class ProfilePage implements OnInit {
 
 
   constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) { 
-    this.storage.get('user').then((val)=>{
-      this.usuario = val
-
-      servicioPublicaciones.getPublicaciones()
-      .subscribe((publicaciones: Story[])=>{
-        this.stories = publicaciones;
-        this.numStories = this.stories.length
-        //console.log(this.stories)
-      });
-    })
+    
     this.historias = true
     this.seguidores = false
     this.seguidos = false
@@ -64,7 +55,17 @@ export class ProfilePage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.storage.get('user').then((val)=>{
+      this.usuario = val
+      console.log('LOOOOOOOOOOOOOOOOOOOOOOL')
+      console.log(val)
+    })
+    this.servicioPublicaciones.getPublicaciones()
+      .subscribe((publicaciones: Story[])=>{
+        this.stories = publicaciones;
+        this.numStories = this.stories.length
+        //console.log(this.stories)
+      });
   }
 
 }
