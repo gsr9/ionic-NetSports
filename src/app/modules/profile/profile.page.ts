@@ -12,8 +12,8 @@ import { User } from 'src/app/shared/models/user.model'
 })
 export class ProfilePage implements OnInit {
 
-  nombre: string;
-  descripcion: string;
+  usuario: User;
+
   historias: boolean;
   seguidores: boolean;
   seguidos: boolean;
@@ -24,20 +24,21 @@ export class ProfilePage implements OnInit {
 
 
   constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) { 
-    this.nombre = 'Paco';
-    this.descripcion = 'Pues esta sería la descripción de Paco. Preparado pero no mucho.'
-    this.historias = true
-    this.seguidores = false
-    this.seguidos = false
+    this.storage.get('user').then((val)=>{
+      this.usuario = val
 
-    this.storage.remove('publi')
-
-    servicioPublicaciones.getPublicaciones()
+      servicioPublicaciones.getPublicaciones()
       .subscribe((publicaciones: Story[])=>{
         this.stories = publicaciones;
         this.numStories = this.stories.length
         //console.log(this.stories)
       });
+    })
+    this.historias = true
+    this.seguidores = false
+    this.seguidos = false
+
+    this.storage.remove('publi')
   }
 
   public segmentChanged(op: string){
