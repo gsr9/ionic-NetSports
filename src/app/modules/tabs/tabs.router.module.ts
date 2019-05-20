@@ -35,6 +35,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'createPublication',
+        children: [
+          {
+            path: '',
+            loadChildren: '../create-publication/create-publication.module#CreatePublicationPageModule'
+          }
+        ]
+      },
+      {
         path: 'events',
         children: [
           {
@@ -52,7 +61,7 @@ const routes: Routes = [
           }
         ]
       },
-      { path: 'contactos', 
+      { path: 'contactos',
       children: [
         {
           path: '',

@@ -1,9 +1,16 @@
-<ion-card color='white'>
-  <ion-card-header>
-    <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
-    <ion-card-title>{{title}}</ion-card-title>
-  </ion-card-header>
+<ion-card>
+  <ion-item class="sinborde">
+    <ion-avatar item-start>
+        <img src="{{imagen}}"/>
+    </ion-avatar>
+    <h3 style="margin-left: 15px;">{{title}}</h3>
+  </ion-item>
+  <img src="https://statics-cuidateplus.marca.com/sites/default/files/styles/natural/public/comienza-deporte.jpg?itok=UgshWJTs" alt="">
+  <ion-item>
+    <ion-label item-start><p>20-05-2019</p></ion-label>
+    <ion-label class="derecha"><p>{{usuario}}</p></ion-label>
+  </ion-item>
   <ion-card-content>
-    {{descripcion}}
+    <p>{{descripcion}}</p>
   </ion-card-content>
-</ion-card>
+  </ion-card>
