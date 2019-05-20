@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PublicacionesService} from '../../services/publicaciones.service'
 import { Storage } from '@ionic/storage';
 import {Router} from '@angular/router';
+import { User } from 'src/app/shared/models/user.model';
 @Component({
   selector: 'app-create-publication',
   templateUrl: './create-publication.page.html',
