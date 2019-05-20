@@ -1,0 +1,85 @@
+.parteArriba{
+  background-color: var(--ion-color-primary);
+  height: 25vh;
+  width: 100vm
+}
+
+.parteAbajo{
+  height: 55vh;
+  width: 100vm
+}
+
+.divImagen{
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.divInfo{
+  height: 25vh;
+}
+
+.tagsProfile{
+  color: #f46804;
+  font-family: roboto;
+  font-size: medium;
+  font-weight: bold;
+  position: absolute;
+  bottom: 15px
+}
+
+.imagenProfile{
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  position: absolute;
+  top: 2.5vh;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+
+
+.fontTitulo{
+  font-family: roboto;
+  font-size: large;
+  color :var(--ion-color-primary-shade);
+  font-weight: bold;
+}
+
+.centradoProfile{
+  justify-content: center;
+  align-items: center
+}
+
+.robotoFont{
+  font-family: roboto;
+  font-weight: bold;
+  font-size: medium;
+  height: 5vh;
+  margin-top: 2vh;
+}
+
+.fontDescripcion{
+  font-family: roboto;
+  font-size: small;
+  color: #474747;
+  margin-left: 7px;
+}
+
+.pencilImagen{
+  position:absolute;
+  bottom:10px;
+  right:5px;
+  width: 1.7em;
+  height: 1.7em;
+}
+
+.badgeProfile{
+  margin-left: 10px;
+}
+
+.tabProfile{
+  color: var(--ion-color-primary-shade);
+}

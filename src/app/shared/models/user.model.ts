@@ -9,6 +9,7 @@ export class User {
     followers: Map<string, string>; // id - nombre usuario
     following: Map<string, string>; // id - nombre usuario
     stories: Story[];
+    foto: string;
 
     constructor(email: string, username: string, password: string, level: string){
         this.email = email;
