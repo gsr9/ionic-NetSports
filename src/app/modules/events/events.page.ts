@@ -21,13 +21,10 @@ export class EventsPage implements OnInit {
   encontradosfiltro: Boolean[] =[false,false,false,false];
   selectedUser: string;
   selectedLocation: string;
-  prueba: any;
   constructor(public eventsService: EventsService, private router: Router) {
     this.eventsService.getEvents()
     .subscribe((events: Event[])=>{
       this.eventos = events;
-      //this.users = events[0].Users[0];
-      console.log(this.eventos, 'dentro');
     })
    }
 
@@ -89,7 +86,6 @@ export class EventsPage implements OnInit {
       this.filtro[3] = true;
     }
 
-    console.log(this.eventos);
 
     for(const evento of this.eventos){
       if(evento.deporte == this.selectedSport){
@@ -112,14 +108,12 @@ export class EventsPage implements OnInit {
       this.encontradosfiltro = [false,false,false,false];
     }
 
-    //console.log(this.searchedEventos)
     this.filtro = [false,false,false,false];
     this.showFilter = false;
   }
 
   irA(evento){
     this.eventsService.setShowEvent(evento);
-    console.log(evento)
     this.router.navigate(['/tabs/show-event'])
   }
 

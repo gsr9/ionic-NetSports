@@ -24,6 +24,11 @@ export class ShowEventPage implements OnInit {
 
   constructor(private router: Router,private eventsService: EventsService, private storage: Storage) { 
     this.event = this.eventsService.getShowEvent();
+  }
+
+  ionViewWillEnter(){
+    this.event = this.eventsService.getShowEvent();
+    this.encontrado = false;
     this.storage.get('user').then((val: User) => {
       this.user = val;
       this.name = val.username;
@@ -34,30 +39,23 @@ export class ShowEventPage implements OnInit {
         this.router.navigate(['/tabs/events'])
       }
       this.comprobarApuntado();
-        console.log( 'Prueba: ' + this.email)
       });
   }
 
   ngOnInit() {
-    
   }
 
   comprobarApuntado(){
     for (const usuario of this.event.users) {
-      console.log(usuario,' ', this.email)
       if(usuario == this.email){
         this.encontrado = true;
-        console.log('pasa')
       }
     }
-
-    console.log(this.encontrado)
   }
 
   apuntarUser(){
     this.event.users.push(this.email);
     this.encontrado = true;
-    console.log(this.event.users)
     this.eventsService.updateEvent(this.event);
   }
 
@@ -72,7 +70,6 @@ export class ShowEventPage implements OnInit {
       this.encontrado = false;
       this.eventsService.updateEvent(this.event);
     }
-    console.log(this.event.users)
   }
 
   //<img src="https://www.muypymes.com/wp-content/uploads/2018/03/googlemaps-googledevelopers1-660x330.png"/>
