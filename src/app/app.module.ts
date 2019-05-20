@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
+import { EventsService } from 'src/app/services/events.service';
 import { PublicacionesService} from 'src/app/services/publicaciones.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,6 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     UserService,
+    EventsService,
     AngularFireDatabase,
     PublicacionesService,
     AuthGuardService,

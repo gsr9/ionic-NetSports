@@ -61,6 +61,15 @@ const routes: Routes = [
       ]},
 
       {
+        path: 'show-event',
+        children: [
+          {
+            path: '',
+            loadChildren: '../show-event/show-event.module#ShowEventPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/wall',
         pathMatch: 'full'
