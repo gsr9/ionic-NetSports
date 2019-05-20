@@ -52,6 +52,14 @@ const routes: Routes = [
           }
         ]
       },
+      { path: 'contactos', 
+      children: [
+        {
+          path: '',
+          loadChildren: '../contacts/contacts.module#ContactsPageModule'
+        }
+      ]},
+
       {
         path: '',
         redirectTo: '/tabs/wall',
