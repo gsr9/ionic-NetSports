@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../services/user.service';
+import {PublicacionesService} from '../../services/publicaciones.service'
+import {Story} from '../../shared/models/story.model';
+import {Router} from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-wall',
@@ -8,14 +12,21 @@ import {UserService} from '../../services/user.service';
 })
 export class WallPage implements OnInit {
 
-  users = []
-  constructor(public fruitsService:UserService) {
-    fruitsService.getFruits()
-      .subscribe(fruits=>{
-        this.users = fruits;
-        console.log(this.users)
-      });//Hacemos una llamada a nuestro servicio, al metodo getFruits y nos devolvera toda la fruta que hay en nuestr abase de datos
-        // y las cargaremos en nuestro array
+  publications: Story[] = [];
+  selectItem: Story;
+  constructor(public service:PublicacionesService,private router:Router, private storage: Storage) {
+
+    service.getPublicaciones()
+      .subscribe((publicaciones: Story[])=>{
+        this.publications = publicaciones;
+        this.storage.set('publis',this.publications)
+
+      });
+  }
+
+  public goToPubli(id: string){
+
+     this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
   }
 
   ngOnInit() {

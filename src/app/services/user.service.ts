@@ -1,20 +1,28 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { User } from '../shared/models/User.model';
 
 @Injectable()
-export class UserService{
-    
-    constructor(public afDB: AngularFireDatabase){
+export class UserService {
+
+    constructor(public afDB: AngularFireDatabase) {
     }
 
-    public getFruits(){
-        return this.afDB.list('/users').valueChanges(); 
-        //Esta función devolverá todos los datos que tengamos en el apartado fruits, en nuestra base de datos
+    public getUsers() {
+        return this.afDB.list('/users').valueChanges();
+        // Esta función devolverá todos los datos que tengamos en el apartado fruits, en nuestra base de datos
     }
 
-    //pruebas
-    public setUsuarios(){
-       return this.afDB.database.ref('/users').push({email: 'gcs2@gmail.com', pass: 'aprobado', username: 'gcs'});
+    public getUserByEmail(email: string) {
+        // return this.afDB.list('users', ref =>
+        //     ref.orderByChild('email').equalTo(email)
+        // ).valueChanges();
+       return this.afDB.list('users', ref =>
+            ref.orderByChild('email').equalTo(email)).snapshotChanges();
+    }
+
+    public updateUser(key: string, user: User) {
+        return this.afDB.object('/users/' + key).update(user);
     }
 
 }

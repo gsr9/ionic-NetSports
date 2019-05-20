@@ -1,0 +1,62 @@
+.list-form {
+  padding: 0;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+ion-item {
+  background: none;
+  padding: 0;
+  margin: 5px;
+  font-size: 1em;
+  box-shadow: none;
+  width: 80vw;
+  --border-radius: 15px;
+}
+
+.item-inner {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
+ion-label {
+  font-size: 1em;
+  color: var(--ion-color-primary);
+}
+.item-native {
+  border-radius: 15px;
+  color: #3b5999 !important;
+}
+
+ion-toolbar {
+  margin-bottom: 5vh;
+}
+
+h1 {
+  color: whitesmoke;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 2em;
+}
+
+ion-content {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-button {
+  width: 80vw;
+}
+
+ion-content{
+  --ion-background-color:rgba(59, 179, 69, 0.836);
+}
+
+.container {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -17,6 +17,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'publication',
+        children: [
+          {
+            path: '',
+            loadChildren: '../publication/publication.module#PublicationPageModule'
+          }
+        ]
+      },
+      {
         path: 'contacts',
         children: [
           {
@@ -43,6 +52,14 @@ const routes: Routes = [
           }
         ]
       },
+      { path: 'contactos', 
+      children: [
+        {
+          path: '',
+          loadChildren: '../contacts/contacts.module#ContactsPageModule'
+        }
+      ]},
+
       {
         path: 'show-event',
         children: [
@@ -57,6 +74,7 @@ const routes: Routes = [
         redirectTo: '/tabs/wall',
         pathMatch: 'full'
       }
+
     ]
   },
   {
