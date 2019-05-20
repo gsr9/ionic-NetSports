@@ -1,5 +1,7 @@
 {
   "name": "NetSports",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

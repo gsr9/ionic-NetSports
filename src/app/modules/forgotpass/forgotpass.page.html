@@ -1,0 +1,55 @@
+<ion-content color="primary">
+  <ion-fab vertical="top" horizontal="start" slot="fixed" routerLink="/login">
+    <ion-fab-button>
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <form [formGroup]="forgotForm" class="list-form center-content">
+    <h1>Recuperar Contraseña</h1>
+    <img src="https://cdn1.iconfinder.com/data/icons/mail-flat-line-icons/160/11-512.png">
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="email" placeholder="Correo Electrónico" formControlName="email"></ion-input>
+    </ion-item>
+    <p ion-text class="text08" *ngIf="checkMail()">
+      <ion-text color="danger">
+        Email incorrecto
+      </ion-text>
+    </p>
+
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Contraseña" formControlName="pass"></ion-input>
+    </ion-item>
+    <p ion-text color="warning" class="text08"
+      *ngIf="forgotForm.get('pass').touched && forgotForm.get('pass').hasError('required')">
+      <ion-text color="danger">
+        Password incorrecto
+      </ion-text>
+    </p>
+    <ion-item color="item">
+      <ion-label floating>
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Repetir contraseña" formControlName="pass_conf"></ion-input>
+    </ion-item>
+    <p ion-text color="warning" class="text08"
+      *ngIf="forgotForm.get('pass_conf').touched && forgotForm.get('pass_conf').hasError('required')">
+      <ion-text color="danger">
+        Password incorrecto
+      </ion-text>
+    </p>
+    <p ion-text class="text08" *ngIf="forgotForm.hasError('notSame')">
+      <ion-text color="danger">
+        Las contraseñas no coinciden
+      </ion-text>
+    </p>
+    <ion-button class="send-button" icon-start block tappable (click)="recover()" [disabled]="!forgotForm.valid">
+      Recuperar
+    </ion-button>
+  </form>
+</ion-content>
