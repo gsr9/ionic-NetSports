@@ -1,9 +1,16 @@
-<ion-card color='white'>
-  <ion-card-header>
-    <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
-    <ion-card-title>{{title}}</ion-card-title>
-  </ion-card-header>
+<ion-card>
+  <ion-item class="sinborde">
+    <ion-avatar item-start>
+        <img src="https://previews.123rf.com/images/igorrita/igorrita1507/igorrita150700024/42584408-car%C3%A1cter-inconformista-plana-chico-joven-con-estilo-con-gafas-avatar-icono-ilustraci%C3%B3n-vectorial-hombre-e.jpg"/>
+    </ion-avatar>
+    <h3>{{title}}</h3>
+  </ion-item>
+  <img src="https://statics-cuidateplus.marca.com/sites/default/files/styles/natural/public/comienza-deporte.jpg?itok=UgshWJTs" alt="">
+  <ion-item>
+    <ion-label item-start><p>20-05-2019</p></ion-label>
+    <ion-label class="derecha"><p>{{usuario}}</p></ion-label>
+  </ion-item>
   <ion-card-content>
-    {{descripcion}}
+    <p>{{descripcion}}</p>
   </ion-card-content>
-</ion-card>
+  </ion-card>
