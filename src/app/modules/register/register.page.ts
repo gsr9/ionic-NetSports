@@ -12,12 +12,14 @@ import { RegisterService } from './register.service';
 export class RegisterPage implements OnInit {
 
   createSuccess = false;
+  level: string;
   // registerCredentials = { name: '', email: '', password: '', confirmation_password: '' };
   public registerForm = this.fb.group({
     'email': ['', Validators.compose([Validators.required, Validators.email])],
     'user': ['', Validators.required],
     'pass': ['', Validators.required],
-    'pass_conf': ['', Validators.required]
+    'pass_conf': ['', Validators.required],
+    'level': ['novato']
   }, { validator: this.checkPasswords });
 
   constructor(
@@ -41,7 +43,8 @@ export class RegisterPage implements OnInit {
     const email = this.registerForm.controls.email.value;
     const password = this.registerForm.controls.pass.value;
     const username = this.registerForm.controls.user.value;
-    this.registerService.addUser(email, username, password, 'amateur');
+    const level = this.registerForm.controls.level.value;
+    this.registerService.addUser(email, username, password, level);
     this.showPopup();
   }
 
