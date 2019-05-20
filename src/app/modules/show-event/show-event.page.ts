@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/event';
 import { EventsService } from 'src/app/services/events.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/shared/models/user.model';
 
 
 @Component({
@@ -13,39 +14,48 @@ import { Router } from '@angular/router';
 export class ShowEventPage implements OnInit {
 
   event: Event;
+  name: string;
+  email: string;
   latitud: number;
   longitud: number;
-  user: string = "paco@gmail.com";
+  user: User;
   encontrado = false;
   borrar: number;
 
   constructor(private router: Router,private eventsService: EventsService, private storage: Storage) { 
-
+    this.event = this.eventsService.getShowEvent();
+    this.storage.get('user').then((val: User) => {
+      this.user = val;
+      this.name = val.username;
+      this.email = val.email;
+      this.latitud = parseFloat(this.event.latitud);
+      this.longitud = parseFloat(this.event.longitud);
+      if(!this.event){
+        this.router.navigate(['/tabs/events'])
+      }
+      this.comprobarApuntado();
+        console.log( 'Prueba: ' + this.email)
+      });
   }
 
   ngOnInit() {
-    this.storage.get('user').then((val) => {
-      //console.log('Your age is', val);
-    });
-    this.event = this.eventsService.getShowEvent();
-    this.latitud = parseFloat(this.event.latitud);
-    this.longitud = parseFloat(this.event.longitud);
-    if(!this.event){
-      this.router.navigate(['/tabs/events'])
-    }
-    this.comprobarApuntado();
+    
   }
 
   comprobarApuntado(){
     for (const usuario of this.event.users) {
-      if(usuario == this.user){
+      console.log(usuario,' ', this.email)
+      if(usuario == this.email){
         this.encontrado = true;
+        console.log('pasa')
       }
     }
+
+    console.log(this.encontrado)
   }
 
   apuntarUser(){
-    this.event.users.push(this.user);
+    this.event.users.push(this.email);
     this.encontrado = true;
     console.log(this.event.users)
     this.eventsService.updateEvent(this.event);
@@ -53,7 +63,7 @@ export class ShowEventPage implements OnInit {
 
   desapuntarUser(){
     for(var i=0; i<= this.event.users.length; i++){
-      if(this.event.users[i] == this.user){
+      if(this.event.users[i] == this.email){
         this.borrar = i;
       }
     }
