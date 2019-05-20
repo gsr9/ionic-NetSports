@@ -32,4 +32,8 @@ export class WallPage implements OnInit {
   ngOnInit() {
   }
 
+  irA(){
+    this.router.navigate(['/tabs/crear-ruta'])
+  }
+
 }
