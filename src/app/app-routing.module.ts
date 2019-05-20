@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'register', loadChildren: './modules/register/register.module#RegisterPageModule' },
   {path: 'forgotpass', loadChildren: './modules/forgotpass/forgotpass.module#ForgotpassPageModule' },
   { path: '**', redirectTo: '', pathMatch: 'full' }
+
 ];
 @NgModule({
   imports: [

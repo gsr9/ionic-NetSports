@@ -9,7 +9,6 @@
         <ion-col size="7" class="divInfo">
           <p class="fontTitulo">{{name}}</p>
           <p class="fontDescripcion">{{description}}</p>
-          <img class="pencilImagen" src="https://cdn.onlinewebfonts.com/svg/img_376363.png">
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -29,7 +28,7 @@
         </ion-segment>
       
       <ion-content *ngIf="historias">
-        <ion-grid>
+        <!--<ion-grid>
           <ion-row>
             <ion-col *ngFor="let item of stories; let i = index;" size=4>
               <app-historia-profile (click)="goToPubli(i)" [name]=item.titulo>
@@ -37,11 +36,11 @@
               </app-historia-profile>
             </ion-col>
           </ion-row>
-        </ion-grid>
+        </ion-grid>-->
       </ion-content>
 
     <ion-content *ngIf="seguidores">
-      <ion-grid>
+      <!--<ion-grid>
         <ion-row>
           <ion-col *ngFor="let item of followers; let i = index;" size=3>
               <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
@@ -49,11 +48,11 @@
               </app-item-usuario>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid>-->
     </ion-content>
 
   <ion-content *ngIf="seguidos">
-    <ion-grid>
+    <!--<ion-grid>
       <ion-row>
         <ion-col *ngFor="let item of following; let i = index;" size=3>
             <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
@@ -61,7 +60,7 @@
             </app-item-usuario>
         </ion-col>
       </ion-row>
-    </ion-grid>
+    </ion-grid>-->
   </ion-content>
 </div>
 

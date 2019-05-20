@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { PublicacionesService } from 'src/app/services/publicaciones.service'
+import { UserService } from 'src/app/services/user.service'
 import { Story } from 'src/app/shared/models/story.model'
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 import { User } from 'src/app/shared/models/user.model'
 
 @Component({
@@ -33,7 +34,7 @@ export class ProfilePage implements OnInit {
   numFollowing: number;
 
 
-  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService, private router: Router) {
+  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService,private service: UserService, private router: Router, private route: ActivatedRoute) {
 
     this.historias = true
     this.seguidores = false
@@ -41,7 +42,9 @@ export class ProfilePage implements OnInit {
 
     this.numFollowing = this.following.length
 
-    this.storage.remove('publi')
+    
+
+    //this.storage.remove('publi')
   }
 
   public segmentChanged(op: string) {
@@ -65,7 +68,22 @@ export class ProfilePage implements OnInit {
     this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
  }
 
+ public goToProfile(user: string){
+
+  console.log('Route a ' + user)
+
+  this.router.navigate(['/tabs/otherProfile'],{ queryParams: { user: user } })
+  console.log('ADIOS')
+}
+
   ngOnInit() {
+
+    this.route.queryParams
+      .filter(params => params.user)
+      .subscribe(params => {
+        console.log(params)
+    });
+
     this.storage.get('user').then((val: User) => {
       this.usuario = val;
       this.name = this.usuario.username;

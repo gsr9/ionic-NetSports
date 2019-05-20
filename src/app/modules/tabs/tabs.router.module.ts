@@ -53,6 +53,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'otherProfile',
+        children: [
+          {
+            path: '',
+            loadChildren: '../other-profile/other-profile.module#OtherProfilePageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/wall',
         pathMatch: 'full'
