@@ -17,6 +17,7 @@ export class ProfilePage implements OnInit {
   name = '';
   level = '';
   description = '';
+  imagen = '';
 
   historias: boolean;
   seguidores: boolean;
@@ -25,10 +26,10 @@ export class ProfilePage implements OnInit {
   stories: Story[] = [];
   numStories: number;
 
-  followers: string[] = ['Pavo', 'Jose', 'Maria', '50Cent', '2Pac', 'ElNiñoWey']
+  followers: any = ['Pavo', 'Jose', 'Maria', '50Cent', '2Pac', 'ElNiñoWey']
   numFollowers: number;
 
-  following: string[] = ['Uno', 'Otro', 'EL CHOCU', 'Jaja', 'xd', 'lul', 'uwu', 'OwO']
+  following: any = ['Pavo', 'Jose', 'Maria', '50Cent', '2Pac', 'ElNiñoWey']
   numFollowing: number;
 
 
@@ -38,7 +39,6 @@ export class ProfilePage implements OnInit {
     this.seguidores = false
     this.seguidos = false
 
-    this.numFollowers = this.followers.length
     this.numFollowing = this.following.length
 
     this.storage.remove('publi')
@@ -71,6 +71,13 @@ export class ProfilePage implements OnInit {
       this.name = this.usuario.username;
       this.level = this.usuario.level;
       this.description = this.usuario.description;
+      this.imagen = this.usuario.foto;
+      this.followers = val.followers;
+      this.numFollowers = this.followers.length;
+      this.following = val.following;
+      this.numFollowing = this.following.length;
+
+      console.log(val.followers)
 
       this.servicioPublicaciones.getPublicacionesFromUsuario(this.name)
       .subscribe((publicaciones: Story[]) => {

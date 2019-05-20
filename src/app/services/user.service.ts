@@ -12,4 +12,10 @@ export class UserService {
         // Esta función devolverá todos los datos que tengamos en el apartado fruits, en nuestra base de datos
     }
 
+    public getUsuarioNombre(nombre: string){
+        return this.afDB.list('/users', ref =>
+        ref.orderByChild('username').equalTo(nombre)
+        ).valueChanges();
+    }
+
 }
