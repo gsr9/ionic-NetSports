@@ -57,6 +57,14 @@
           campo requerido
         </ion-text>
       </p>
+      <ion-item color="item">
+          <ion-label>Deportista de nivel</ion-label>
+          <ion-select value="novato" okText="Okay" cancelText="Dismiss" formControlName="level">
+            <ion-select-option value="novato">Novato</ion-select-option>
+            <ion-select-option value="amateur">amateur</ion-select-option>
+            <ion-select-option value="profesional">Profesional</ion-select-option>
+          </ion-select>
+        </ion-item>
       <p ion-text class="text08" *ngIf="registerForm.hasError('notSame')">
         <ion-text color="danger">
           Las contraseñas no coinciden
