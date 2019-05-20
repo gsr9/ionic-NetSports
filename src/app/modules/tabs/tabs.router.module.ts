@@ -52,6 +52,23 @@ const routes: Routes = [
           }
         ]
       },
+      { path: 'contactos', 
+      children: [
+        {
+          path: '',
+          loadChildren: '../contacts/contacts.module#ContactsPageModule'
+        }
+      ]},
+
+      {
+        path: 'show-event',
+        children: [
+          {
+            path: '',
+            loadChildren: '../show-event/show-event.module#ShowEventPageModule'
+          }
+        ]
+      },
       {
         path: 'otherProfile',
         children: [

@@ -1,3 +1,4 @@
+import { AuthGuardService } from './services/auth-guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -13,8 +14,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { UserService } from 'src/app/services/user.service';
+import { EventsService } from 'src/app/services/events.service';
 import { PublicacionesService} from 'src/app/services/publicaciones.service';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+
 
   // Your web app's Firebase configuration
   export const firebaseConfig = {
@@ -37,14 +41,17 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     UserService,
+    EventsService,
     AngularFireDatabase,
     PublicacionesService,
+    AuthGuardService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

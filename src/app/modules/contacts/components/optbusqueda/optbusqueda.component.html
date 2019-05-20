@@ -1,0 +1,25 @@
+<ion-list>
+  <ion-list-header>Opciones de busqueda</ion-list-header>
+
+  <ion-item>
+    <ion-label>Nivel</ion-label>
+    <ion-select [(ngModel)]="nivel" placeholder="Selecciona una...">
+      <ion-select-option value="novato">Novato</ion-select-option>
+      <ion-select-option value="amateur">Amateur</ion-select-option>
+      <ion-select-option value="profesional">Profesional</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Deporte</ion-label>
+    <ion-select [(ngModel)]="deporte" placeholder="Selecciona una...">
+      <ion-select-option value="futbol">Futbol</ion-select-option>
+      <ion-select-option value="tenis">Tenis</ion-select-option>
+      <ion-select-option value="baloncesto">Baloncesto</ion-select-option>
+      <ion-select-option value="running">Running</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+</ion-list>
+
+<ion-button style="padding-left: 15vw;padding-bottom: 3vh" color="primary" (click)="busquedaAv()">Buscar</ion-button>
