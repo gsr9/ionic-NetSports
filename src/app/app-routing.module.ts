@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'forgotpass', loadChildren: './modules/forgotpass/forgotpass.module#ForgotpassPageModule' },
   // Podemos dejarlo así o redirigir a una página con un 404 Not Found
   { path: 'show-event', loadChildren: './modules/show-event/show-event.module#ShowEventPageModule' },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: '', pathMatch: 'full' },  { path: 'create-publication', loadChildren: './modules/create-publication/create-publication.module#CreatePublicationPageModule' }
+
 
 ];
 @NgModule({
