@@ -16,6 +16,7 @@ export class PublicationPage implements OnInit {
   usuario: string = "";
   titulo: string = "";
   descripcion: string="";
+  comments: string[] = ["Me encanta :)","Ya tenía ganas de algo así","Para cuando otra???"]
 
 
   constructor(private storage: Storage, private route: ActivatedRoute) {}

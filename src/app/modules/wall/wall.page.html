@@ -6,4 +6,9 @@
 
 <ion-content color='primary'>
   <app-wall-item *ngFor="let item of publications; let i = index;" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario (click)="goToPubli(i)"></app-wall-item>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="irA()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -24,6 +24,9 @@ export class WallPage implements OnInit {
       });
   }
 
+  public idA(){
+    
+  }
   public goToPubli(id: string){
 
      this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
