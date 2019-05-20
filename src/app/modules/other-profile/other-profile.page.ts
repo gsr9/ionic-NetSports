@@ -4,6 +4,7 @@ import { Story } from 'src/app/shared/models/story.model'
 import { PublicacionesService } from 'src/app/services/publicaciones.service'
 import { UserService } from 'src/app/services/user.service'
 import { Router, ActivatedRoute } from '@angular/router'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-other-profile',
@@ -32,7 +33,7 @@ export class OtherProfilePage implements OnInit {
   following: any = []
   numFollowing: number = 0;
 
-  constructor(private publiService: PublicacionesService, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private publiService: PublicacionesService, private userService: UserService, private route: ActivatedRoute, private router: Router, private storage: Storage) { }
 
   public segmentChanged(op: string) {
     if (op == "historias") {
@@ -49,6 +50,23 @@ export class OtherProfilePage implements OnInit {
       this.seguidos = true
     }
   }
+
+  public goToProfile(user: string){
+    this.storage.get('user').then((val: User) => {
+      var usu = val.username
+      if(usu==this.name){
+        this.router.navigate(['/tabs/profile'])
+      }
+      else{
+        this.router.navigate(['/tabs/otherProfile'],{ queryParams: { user: user } })
+      }
+    })
+  }
+
+  public goToPubli(id: string){
+
+    this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
+ }
 
   ngOnInit() {
     this.route.queryParams

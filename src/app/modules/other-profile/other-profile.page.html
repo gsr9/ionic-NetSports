@@ -28,39 +28,39 @@
         </ion-segment>
       
       <ion-content *ngIf="historias">
-        <!--<ion-grid>
+        <ion-grid>
           <ion-row>
             <ion-col *ngFor="let item of stories; let i = index;" size=4>
-              <app-historia-profile (click)="goToPubli(i)" [name]=item.titulo>
+              <app-historia-other (click)="goToPubli(i)" [name]=item.titulo>
 
-              </app-historia-profile>
+              </app-historia-other>
             </ion-col>
           </ion-row>
-        </ion-grid>-->
+        </ion-grid>
       </ion-content>
 
     <ion-content *ngIf="seguidores">
-      <!--<ion-grid>
+      <ion-grid>
         <ion-row>
           <ion-col *ngFor="let item of followers; let i = index;" size=3>
-              <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
+              <app-item-other (click)="goToProfile(item)" [nombre]="item">
 
-              </app-item-usuario>
+              </app-item-other>
           </ion-col>
         </ion-row>
-      </ion-grid>-->
+      </ion-grid>
     </ion-content>
 
   <ion-content *ngIf="seguidos">
-    <!--<ion-grid>
+    <ion-grid>
       <ion-row>
         <ion-col *ngFor="let item of following; let i = index;" size=3>
-            <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
+            <app-item-other (click)="goToProfile(item)" [nombre]="item">
 
-            </app-item-usuario>
+            </app-item-other>
         </ion-col>
       </ion-row>
-    </ion-grid>-->
+    </ion-grid>
   </ion-content>
 </div>
 

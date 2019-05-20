@@ -69,11 +69,7 @@ export class ProfilePage implements OnInit {
  }
 
  public goToProfile(user: string){
-
-  console.log('Route a ' + user)
-
   this.router.navigate(['/tabs/otherProfile'],{ queryParams: { user: user } })
-  console.log('ADIOS')
 }
 
   ngOnInit() {
