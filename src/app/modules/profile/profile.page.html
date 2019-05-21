@@ -2,68 +2,77 @@
   <div class="parteArriba">
     <ion-grid>
       <ion-row>
-        <ion-col size="5" class="divImagen">
-            <img class="imagenProfile" src="{{imagen}}">
-            <a class="tagsProfile">#{{level}}</a>
+        <ion-col size="4" class="divImagen">
+          <img class="imagenProfile" src="{{imagen}}">
+          <a class="tagsProfile">#{{level}}</a>
         </ion-col>
-        <ion-col size="7" class="divInfo">
+        <ion-col size="8" class="divInfo">
           <p class="fontTitulo">{{name}}</p>
           <p class="fontDescripcion">{{description}}</p>
-          <img class="pencilImagen" src="https://cdn.onlinewebfonts.com/svg/img_376363.png">
+          <!-- <img class="pencilImagen" src="https://cdn.onlinewebfonts.com/svg/img_376363.png"> -->
+          <ion-fab-button class="pencilImagen" size="small">
+            <ion-icon name="create"></ion-icon>
+          </ion-fab-button>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
   <div class="parteAbajo">
-      
-      <ion-segment class="tabProfile" color="secondary" (ionChange)="segmentChanged($event.target.value)">
-          <ion-segment-button value="historias" checked>
-            <ion-label class="robotoFont">Historias <ion-badge class="badgeProfile" color="primary">{{numStories}}</ion-badge></ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="seguidores">
-            <ion-label class="robotoFont">Seguidores <ion-badge class="badgeProfile" color="primary">{{numFollowers}}</ion-badge></ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="seguidos">
-            <ion-label class="robotoFont">Seguidos <ion-badge class="badgeProfile" color="primary">{{numFollowing}}</ion-badge></ion-label>
-          </ion-segment-button>
-        </ion-segment>
-      
-      <ion-content *ngIf="historias">
-        <ion-grid>
-          <ion-row>
-            <ion-col *ngFor="let item of stories; let i = index;" size=4>
-              <app-historia-profile (click)="goToPubli(i)" [name]=item.titulo>
 
-              </app-historia-profile>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-content>
+    <ion-segment class="tabProfile" color="secondary" (ionChange)="segmentChanged($event.target.value)">
+      <ion-segment-button value="historias" checked>
+        <ion-label class="robotoFont">Historias <ion-badge class="badgeProfile" color="primary">{{numStories}}
+          </ion-badge>
+        </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="seguidores">
+        <ion-label class="robotoFont">Seguidores <ion-badge class="badgeProfile" color="primary">{{numFollowers}}
+          </ion-badge>
+        </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="seguidos">
+        <ion-label class="robotoFont">Seguidos <ion-badge class="badgeProfile" color="primary">{{numFollowing}}
+          </ion-badge>
+        </ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
-    <ion-content *ngIf="seguidores">
+    <ion-content *ngIf="historias">
       <ion-grid>
         <ion-row>
-          <ion-col *ngFor="let item of followers; let i = index;" size=3>
-              <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
+          <ion-col *ngFor="let item of stories; let i = index;" size=4>
+            <app-historia-profile (click)="goToPubli(i)" [name]=item.titulo>
 
-              </app-item-usuario>
+            </app-historia-profile>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-content>
 
-  <ion-content *ngIf="seguidos">
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let item of following; let i = index;" size=3>
+    <ion-content *ngIf="seguidores">
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let item of followers; let i = index;" size=3>
             <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
 
             </app-item-usuario>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-content>
-</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+
+    <ion-content *ngIf="seguidos">
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let item of following; let i = index;" size=3>
+            <app-item-usuario (click)="goToProfile(item)" [nombre]="item">
+
+            </app-item-usuario>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </div>
 
 
 </ion-content>
