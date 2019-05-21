@@ -6,6 +6,7 @@
 
 <ion-content color='primary'>
   <app-wall-item *ngFor="let item of publications; let i = index;" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario (click)="goToPubli(i)"></app-wall-item>
+  <app-ruta-card *ngFor="let item of rutas" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.creador [fecha]=item.fecha (click)="irRuta(item)"></app-ruta-card>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
 
     <ion-fab-button color="secondary">
@@ -18,7 +19,7 @@
       </ion-fab-button>
       <ion-label>Publicación</ion-label>
 
-      <ion-fab-button color="secondary">
+      <ion-fab-button color="secondary" (click)="crearRuta()">
         <ion-icon name="clipboard"></ion-icon>
       </ion-fab-button>
       <ion-label>Ruta</ion-label>
@@ -31,3 +32,4 @@
     </ion-fab-list>
   </ion-fab>
 </ion-content>
+

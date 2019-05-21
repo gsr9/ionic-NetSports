@@ -79,6 +79,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'crear-ruta',
+        children: [
+          {
+            path: '',
+            loadChildren: '../crear-ruta/crear-ruta.module#CrearRutaPageModule'
+          }
+        ]
+      },
+      {
+        path: 'show-ruta',
+        children: [
+          {
+            path: '',
+            loadChildren: '../show-ruta/show-ruta.module#ShowRutaPageModule'
+          }
+        ]
+      },
+      {  
         path: 'otherProfile',
         children: [
           {
