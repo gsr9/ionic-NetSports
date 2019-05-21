@@ -25,6 +25,7 @@ export class ShowRutaPage implements OnInit {
   descripcion: string;
   fecha: string;
   comments: string[] = ["Tiene muy buena pinta. Me la apunto!","Pero no será peligrosa? :(","Es la misma que hice yo ayer! Está genial!"]
+  gustar = false;
 
   
   
@@ -56,6 +57,14 @@ export class ShowRutaPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  meGusta(){
+    this.gustar = true;
+  }
+
+  nomeGusta(){
+    this.gustar = false;
   }
 
 }
