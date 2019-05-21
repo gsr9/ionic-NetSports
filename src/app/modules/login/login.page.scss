@@ -295,7 +295,11 @@ h1 {
 .bold {
   font-weight: bold !important;
 }
-
+ion-button {
+  --background: #ffa500;
+  --border-radius: 20px;
+  --color: white;
+}
 .login-button {
   width: 90%;
   border-radius: 20px;

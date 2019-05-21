@@ -1,11 +1,12 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Eventos</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
-  <ion-list *ngIf="showFilter">
+<ion-content class="center-content">
+  <h1>Eventos</h1>
+  <ion-list *ngIf="showFilter" class="topMargin" >
     <ion-item>
       <ion-label>Deporte</ion-label>
       <ion-select placeholder="Elige uno" [(ngModel)]="selectedSport">
@@ -18,7 +19,8 @@
     </ion-item>
     <ion-item>
       <ion-label>Fecha</ion-label>
-      <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" placeholder="Elige fecha" max="2021" [(ngModel)]="selectedDate"></ion-datetime>
+      <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" placeholder="Elige fecha" max="2021"
+        [(ngModel)]="selectedDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-input placeholder="Usuario" [(ngModel)]="selectedUser"></ion-input>
@@ -30,23 +32,25 @@
   <ion-grid>
     <ion-row>
       <ion-col size="1" offset="9">
-          <ion-button *ngIf="showFilter" tappable (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
-            <ion-icon name="search" ></ion-icon>
-          </ion-button>
-          <ion-button *ngIf="!showFilter" tappable (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
-            <ion-icon name="list" ></ion-icon>
-          </ion-button>
+        <ion-button *ngIf="showFilter" tappable
+          (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="!showFilter" tappable
+          (click)="filtrar(selectedSport, selectedDate, selectedUser, selectedLocation)">
+          <ion-icon name="list"></ion-icon>
+        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
   <ion-card *ngFor="let item of searchedEventos" (click)="irA(item)">
     <ion-card-header>
       <ion-card-subtitle>{{item.deporte}}</ion-card-subtitle>
       <ion-card-title>{{item.titulo}}</ion-card-title>
     </ion-card-header>
-  
+
     <ion-card-content>{{item.fecha}}</ion-card-content>
   </ion-card>
-  
+
 </ion-content>

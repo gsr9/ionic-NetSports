@@ -8,6 +8,7 @@ ion-fab-button {
     margin-left: 140px;
     overflow: visible;
     position: relative;
+    --background: orange;
   }
   ion-fab-list {
     ion-label {
@@ -15,11 +16,16 @@ ion-fab-button {
       top: 40px;
       right: 25px;
       color: white;
-      background-color: rgba(0,0,0,0.7);
+      // background-color: rgba(0,0,0,0.7);
       line-height: 24px;
       padding: 4px 8px;
       border-radius: 4px;
     }
+    background: #0000008f;
+    padding-right: 15px;
+    box-shadow: 10px 10px 5px 0px rgba(1,84,0,0.2);
+    padding-bottom: 15px;
+    border-radius: 15px;
   }
   ion-fab {
     ion-badge {

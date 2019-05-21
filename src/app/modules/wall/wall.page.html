@@ -1,31 +1,31 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>wall</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content color='primary'>
   <app-wall-item *ngFor="let item of publications; let i = index;" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.usuario (click)="goToPubli(i)"></app-wall-item>
   <app-ruta-card *ngFor="let item of rutas" [title]=item.titulo [descripcion]=item.descripcion [usuario]=item.creador [fecha]=item.fecha (click)="irRuta(item)"></app-ruta-card>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
 
-    <ion-fab-button color="secondary">
+    <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
 
     <ion-fab-list side="top">
       <ion-fab-button color="secondary" (click)="irCrear()">
-        <ion-icon name="cart"></ion-icon>
+        <ion-icon name="albums"></ion-icon>
       </ion-fab-button>
       <ion-label>Publicación</ion-label>
 
       <ion-fab-button color="secondary" (click)="crearRuta()">
-        <ion-icon name="clipboard"></ion-icon>
+        <ion-icon name="map"></ion-icon>
       </ion-fab-button>
       <ion-label>Ruta</ion-label>
 
       <ion-fab-button color="secondary">
-        <ion-icon name="archive"></ion-icon>
+        <ion-icon name="calendar"></ion-icon>
       </ion-fab-button>
       <ion-label>Evento</ion-label>
 

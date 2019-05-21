@@ -34,7 +34,12 @@ export class ProfilePage implements OnInit {
   numFollowing: number;
 
 
-  constructor(private storage: Storage, private servicioPublicaciones: PublicacionesService,private service: UserService, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private storage: Storage,
+    private servicioPublicaciones: PublicacionesService,
+    private service: UserService,
+    private router: Router,
+    private route: ActivatedRoute) {
 
     this.historias = true
     this.seguidores = false
@@ -42,7 +47,7 @@ export class ProfilePage implements OnInit {
 
     this.numFollowing = this.following.length
 
-    
+
 
     //this.storage.remove('publi')
   }
@@ -63,24 +68,25 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  public goToPubli(id: string){
+  public goToPubli(id: string) {
 
-    this.router.navigate(['/tabs/publication'],{ queryParams: { id: id } })
- }
+    this.router.navigate(['/tabs/publication'], { queryParams: { id: id } })
+  }
 
- public goToProfile(user: string){
-  this.router.navigate(['/tabs/otherProfile'],{ queryParams: { user: user } })
-}
+  public goToProfile(user: string) {
+    this.router.navigate(['/tabs/otherProfile'], { queryParams: { user: user } })
+  }
 
   ngOnInit() {
+    if (this.route.queryParams.filter) {
+      this.route.queryParams
+        .filter(params => params.user)
+        .subscribe(params => {
+          console.log(params)
+        });
+    }
 
-    this.route.queryParams
-      .filter(params => params.user)
-      .subscribe(params => {
-        console.log(params)
-    });
-
-    this.storage.get('user').then((val: User) => {
+    this.storage.get('user').then(val => {
       this.usuario = val;
       this.name = this.usuario.username;
       this.level = this.usuario.level;
@@ -89,16 +95,16 @@ export class ProfilePage implements OnInit {
       this.followers = val.followers;
       this.numFollowers = this.followers.length;
       this.following = val.following;
-      this.numFollowing = this.following.length;
+      this.numFollowing = val.followers.length;
 
       console.log(val.followers)
 
       this.servicioPublicaciones.getPublicacionesFromUsuario(this.name)
-      .subscribe((publicaciones: Story[]) => {
-        this.stories = publicaciones;
-        this.numStories = this.stories.length
-        //console.log(this.stories)
-      });
+        .subscribe((publicaciones: Story[]) => {
+          this.stories = publicaciones;
+          this.numStories = this.stories.length
+          //console.log(this.stories)
+        });
     })
   }
 
