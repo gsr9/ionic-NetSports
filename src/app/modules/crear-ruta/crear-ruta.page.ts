@@ -50,8 +50,6 @@ export class CrearRutaPage implements OnInit {
   crearRuta(titulo: string, descripcion: string){
     this.fecha = formatDate(new Date().toISOString(), 'dd/MM/yyyy', 'en-US');
     this.ruta = new Route(titulo,descripcion, this.email, ["38.382417","-0.5109617"], ["38.395851","-0.5139535"], this.fecha);
-    console.log(this.ruta.fecha)
-    console.log(this.ruta)
     this.routesService.setShowRoute(this.ruta);
     this.routesService.createRuta(this.ruta);
   }

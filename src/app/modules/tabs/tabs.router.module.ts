@@ -87,6 +87,15 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: 'show-ruta',
+        children: [
+          {
+            path: '',
+            loadChildren: '../show-ruta/show-ruta.module#ShowRutaPageModule'
+          }
+        ]
+      },
       {  
         path: 'otherProfile',
         children: [

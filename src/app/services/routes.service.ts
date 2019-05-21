@@ -36,7 +36,7 @@ export class RoutesService {
     this.showRoute = route;
   }
 
-  public getShowRoute(route: Route){
+  public getShowRoute(){
     return this.showRoute;
   }
 }

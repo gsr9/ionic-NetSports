@@ -1,0 +1,15 @@
+<ion-card *ngIf="user">
+  <ion-item class="sinborde">
+    <ion-avatar item-start>
+        <img src="{{user.foto}}"/>
+    </ion-avatar>
+    <h3 style="margin-left: 15px;">{{title}}</h3>
+  </ion-item>
+  <ion-item>
+    <ion-label item-start><p>{{fecha}}</p></ion-label>
+    <ion-label class="derecha"><p>{{user.username}}</p></ion-label>
+  </ion-item>
+  <ion-card-content>
+    <p>{{descripcion}}</p>
+  </ion-card-content>
+  </ion-card>

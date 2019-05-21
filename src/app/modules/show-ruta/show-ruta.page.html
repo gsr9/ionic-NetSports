@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ruta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item class="sinborde">
+      <ion-avatar item-start>
+          <img src="{{imagen}}"/>
+      </ion-avatar>
+      <h3 style="margin-left: 15px;">{{titulo}}</h3>
+    </ion-item>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
+      <agm-direction [origin]="origin" [destination]="destination">
+      </agm-direction>
+    </agm-map>
+    <ion-item>
+      <ion-label item-start><p>{{fecha}}</p></ion-label>
+      <ion-label class="derecha"><p>{{nombre}}</p></ion-label>
+    </ion-item>
+    <ion-card-content>
+      <p>{{descripcion}}</p>
+    </ion-card-content>
+    <ion-item class="sinborde">
+      <ion-input placeholder="Enter Input"></ion-input><ion-button>Default</ion-button>
+    </ion-item>
+      <ion-list *ngFor="let item of comments" >
+        <ion-item class="lista">
+          <ion-label>{{item}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+</ion-content>

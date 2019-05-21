@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'show-event', loadChildren: './modules/show-event/show-event.module#ShowEventPageModule' },
   { path: '**', redirectTo: '', pathMatch: 'full' },
   { path: 'create-publication', loadChildren: './modules/create-publication/create-publication.module#CreatePublicationPageModule' },
-  { path: 'crear-ruta', loadChildren: './modules/crear-ruta/crear-ruta.module#CrearRutaPageModule' }
+  { path: 'crear-ruta', loadChildren: './modules/crear-ruta/crear-ruta.module#CrearRutaPageModule' },  { path: 'show-ruta', loadChildren: './modules/show-ruta/show-ruta.module#ShowRutaPageModule' }
+
 
 
 ];
