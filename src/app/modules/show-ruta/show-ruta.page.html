@@ -23,6 +23,8 @@
     <ion-card-content>
       <p>{{descripcion}}</p>
     </ion-card-content>
+    <ion-icon class="gustoso" *ngIf="gustar" name="heart" tappable (click)="nomeGusta()"></ion-icon>
+    <ion-icon class="nogustoso" *ngIf="!gustar" name="heart" tappable (click)="meGusta()"></ion-icon>
     <ion-item class="sinborde">
       <ion-input placeholder="Enter Input"></ion-input><ion-button>Default</ion-button>
     </ion-item>

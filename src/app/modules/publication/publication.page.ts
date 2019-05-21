@@ -20,6 +20,7 @@ export class PublicationPage implements OnInit {
   descripcion: string="";
   imagen: string="";
   comments: string[] = ["Me encanta :)","Ya tenía ganas de algo así","Para cuando otra???"]
+  gustar = false;
 
 
   constructor(private storage: Storage, private route: ActivatedRoute, private service: UserService) {}
@@ -55,6 +56,15 @@ export class PublicationPage implements OnInit {
       });
 
 
+  }
+
+  
+  meGusta(){
+    this.gustar = true;
+  }
+
+  nomeGusta(){
+    this.gustar = false;
   }
 
 
