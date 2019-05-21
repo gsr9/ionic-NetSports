@@ -16,6 +16,11 @@ export class RetarDetallePage implements OnInit {
     this.storage.get('retar').then(usuario => this.otherUser = usuario);
   }
 
+  ngOnChanges() {
+    this.storage.get('retar').then(usuario => this.otherUser = usuario);
+    
+  }
+
   navigateBack(){
     this.router.navigateByUrl('/tabs/wall');
   }

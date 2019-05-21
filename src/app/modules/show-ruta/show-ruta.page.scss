@@ -1,44 +1,51 @@
-.sinborde{
-    --inner-border-width: 0px;
+.sinborde {
+  --inner-border-width: 0px;
 }
 
-.lista{
-    font-size: 15px;
-    color: blue;
-    --inner-border-width: 0.55px 0px 0px 0px;
-    font-weight: normal;
+.lista {
+  font-size: 15px;
+  color: blue;
+  --inner-border-width: 0.55px 0px 0px 0px;
+  font-weight: normal;
 }
 
-.derecha{
-    text-align: right;
+.derecha {
+  text-align: right;
 }
 
-.negro{
-    --background: #000000;
+.negro {
+  --background: #000000;
 }
 
-ion-button{
-    // height: 60px;
-    // width: 60px
+ion-button {
+  // height: 60px;
+  // width: 60px
 }
 
-img{
-    height: 100%;
+img {
+  height: 100%;
 }
-agm-map{
-    width: 100%;
-    height: 30vh;
-}
-
-.gustoso{
-    color: red;
-    height: 2em;
-    width: 2em;
-    margin-left: 1em; 
+agm-map {
+  width: 100%;
+  height: 30vh;
 }
 
-.nogustoso{
-    height: 2em;
-    width: 2em;
-    margin-left: 1em; 
+.gustoso {
+  color: red;
+  height: 2em;
+  width: 2em;
+  margin-left: 1em;
+  margin-right: 3em;
+}
+
+.nogustoso {
+  height: 2em;
+  width: 2em;
+  margin-left: 1em;
+  margin-right: 3em;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
 }

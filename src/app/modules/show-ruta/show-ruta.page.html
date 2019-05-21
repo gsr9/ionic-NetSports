@@ -8,7 +8,7 @@
   <ion-card>
     <ion-item class="sinborde">
       <ion-avatar item-start>
-          <img src="{{imagen}}"/>
+        <img src="{{imagen}}" />
       </ion-avatar>
       <h3 style="margin-left: 15px;">{{titulo}}</h3>
     </ion-item>
@@ -17,25 +17,32 @@
       </agm-direction>
     </agm-map>
     <ion-item>
-      <ion-label item-start><p>{{fecha}}</p></ion-label>
-      <ion-label class="derecha"><p>{{nombre}}</p></ion-label>
+      <ion-label item-start>
+        <p>{{fecha}}</p>
+      </ion-label>
+      <ion-label class="derecha">
+        <p>{{nombre}}</p>
+      </ion-label>
     </ion-item>
     <ion-card-content>
       <p>{{descripcion}}</p>
     </ion-card-content>
-    <ion-icon class="gustoso" *ngIf="gustar" name="heart" tappable (click)="nomeGusta()"></ion-icon>
-    <ion-icon class="nogustoso" *ngIf="!gustar" name="heart" tappable (click)="meGusta()"></ion-icon>
-    <ion-button class="login-button" icon-start block tappable (click)="comparar()" color="tertiary">
+    <div class="vertical-center">
+      <ion-icon class="gustoso" *ngIf="gustar" name="heart" tappable (click)="nomeGusta()"></ion-icon>
+      <ion-icon class="nogustoso" *ngIf="!gustar" name="heart" tappable (click)="meGusta()"></ion-icon>
+      <ion-button icon-start block tappable (click)="comparar()" color="dark">
         <ion-icon name="stopwatch"></ion-icon>
         Comparar marcas
-    </ion-button>
+      </ion-button>
+    </div>
     <ion-item class="sinborde">
-      <ion-input placeholder="Escribe tu comentario aquí"></ion-input><ion-button size="small">Comenta</ion-button>
+      <ion-input placeholder="Escribe tu comentario aquí"></ion-input>
+      <ion-button size="small">Comenta</ion-button>
     </ion-item>
-      <ion-list *ngFor="let item of comments" >
-        <ion-item class="lista">
-          <ion-label>{{item}}</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card>
+    <ion-list *ngFor="let item of comments">
+      <ion-item class="lista">
+        <ion-label>{{item}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
