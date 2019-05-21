@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva Ruta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="rectangulo">
+      <ion-input placeholder="Título" [(ngModel)]="selectedTitulo"></ion-input>
+    </ion-item>
+    <ion-item class="rectangulo">
+        <ion-textarea rows="6" clearOnEdit="true" placeholder="Descripción de la ruta..." [(ngModel)]="selectedDescripcion"></ion-textarea>
+    </ion-item>
+  <ion-item class="sinborde">
+      Ruta:
+  </ion-item>
+  
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
+    <agm-direction [origin]="origin" [destination]="destination">
+    </agm-direction>
+  </agm-map>
+
+  <ion-button class="publicar-button" icon-start tappable  (click)="crearRuta(selectedTitulo,selectedDescripcion)" >
+    <ion-icon name="log-in"></ion-icon>
+    Publicar
+</ion-button>
+</ion-content>

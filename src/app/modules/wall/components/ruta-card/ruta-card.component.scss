@@ -1,0 +1,32 @@
+
+.sinborde{
+    --inner-border-width: 0px;
+}
+
+.lista{
+    font-size: 15px;
+    color: blue;
+    --inner-border-width: 0.55px 0px 0px 0px;
+    font-weight: normal;
+}
+
+.derecha{
+    text-align: right;
+}
+
+.negro{
+    --background: #000000;
+}
+
+ion-button{
+    height: 60px;
+    width: 60px
+}
+
+img{
+    height: 100%;
+}
+
+ion-card-content {
+  background-color: #ffffff;
+}

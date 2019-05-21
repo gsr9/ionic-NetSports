@@ -2,14 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+
 import { IonicModule } from '@ionic/angular';
-import { ShowEventPage } from './show-event.page';
+
+import { ShowRutaPage } from './show-ruta.page';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 const routes: Routes = [
   {
     path: '',
-    component: ShowEventPage
+    component: ShowRutaPage
   }
 ];
 
@@ -21,8 +24,9 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB_RC6z5GEm8S2eBiwMyqabDXv2iiRKCHU'
-    })
+    }),
+    AgmDirectionModule
   ],
-  declarations: [ShowEventPage]
+  declarations: [ShowRutaPage]
 })
-export class ShowEventPageModule {}
+export class ShowRutaPageModule {}
