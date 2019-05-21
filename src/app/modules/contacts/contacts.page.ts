@@ -1,3 +1,5 @@
+import { User } from 'src/app/shared/models/User.model';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, Validators, Form } from '@angular/forms';
@@ -21,7 +23,7 @@ export class ContactsPage implements OnInit {
     'userReq': ['', Validators.min(1)]
   });
 
-  constructor(public storage: Storage, public userService: UserService, private fb: FormBuilder) {
+  constructor(public storage: Storage, public userService: UserService, private fb: FormBuilder, private router: Router) {
     userService.getUsers()
       .subscribe(usersdb => { this.users = usersdb; });
   }
@@ -32,6 +34,13 @@ export class ContactsPage implements OnInit {
     } else {
       this.mostrarBA = true;
     }
+  }
+
+  public goToProfile(user: string){
+    this.storage.get('user').then((val: User) => {
+      var usu = val.username
+        this.router.navigate(['/tabs/otherProfile'],{ queryParams: { user: user } })
+    })
   }
 
   ngOnInit() {

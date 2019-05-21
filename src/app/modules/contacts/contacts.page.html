@@ -22,7 +22,7 @@
       <ion-grid *ngIf="buscado==true && encontrado==true" class="centrado" (loquesea)="busquedaAve($event)">
         <ion-row>
           <ion-col size=4 col-6 col-md-4 col-xl-3 *ngFor="let image of coincidentes">
-            <div class="sombras">
+            <div (click)="goToProfile(image.username)" class="sombras">
               <img src="{{image.foto}}" class="fotoRedonda" />
               <p>{{ image.username }}</p>
             </div>
