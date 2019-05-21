@@ -96,12 +96,40 @@ const routes: Routes = [
           }
         ]
       },
-      {  
+      {
         path: 'otherProfile',
         children: [
           {
             path: '',
             loadChildren: '../other-profile/other-profile.module#OtherProfilePageModule'
+          }
+        ]
+      },
+      // añadido
+      // {
+      //   path: 'crear-ruta',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: '../crear-ruta/crear-ruta.module#CrearRutaPageModule'
+      //     }
+      //   ]
+      // },
+      // {
+      //   path: 'crear-ruta',
+      //   children: [
+      //     {
+      //       path: '',
+      //       loadChildren: '../crear-ruta/crear-ruta.module#CrearRutaPageModule'
+      //     }
+      //   ]
+      // },
+      {
+        path: 'retar-detalle',
+        children: [
+          {
+            path: '',
+            loadChildren: '../retar-detalle/retar-detalle.module#RetarDetallePageModule'
           }
         ]
       },

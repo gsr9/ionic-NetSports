@@ -1,0 +1,9 @@
+<ion-list>
+  <ion-item>
+    <h1>Usuarios para retar</h1>
+  </ion-item>
+  <ion-item *ngFor="let user of usuarios">
+    <ion-label>{{user}}</ion-label>
+    <ion-button color="tertiary" slot="end" (click)="comparar(user)"> Comparar </ion-button>
+  </ion-item>
+</ion-list>

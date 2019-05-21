@@ -1,3 +1,4 @@
+import { CompararComponent } from './components/comparar/comparar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +28,7 @@ const routes: Routes = [
     }),
     AgmDirectionModule
   ],
-  declarations: [ShowRutaPage]
+  declarations: [ShowRutaPage, CompararComponent],
+  entryComponents: [CompararComponent]
 })
 export class ShowRutaPageModule {}

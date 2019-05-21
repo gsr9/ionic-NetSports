@@ -1,0 +1,22 @@
+<ion-content color="secondary">
+  <ion-fab vertical="top" horizontal="start" slot="fixed" (click)="navigateBack()">
+    <ion-fab-button>
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div *ngIf="otherUser">
+    <ion-list>
+      <ion-item slot="center">
+        <img src="../../../assets/stopwatch.gif" alt="">
+      </ion-item>
+      <ion-item>
+        <h1>Tú:</h1>
+        <h2>32 minutos 30 segundos</h2>
+      </ion-item>
+      <ion-item>
+        <h1>{{otherUser}}: </h1>
+        <h2>35 minutos 10 segundos</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
