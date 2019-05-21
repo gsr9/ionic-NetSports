@@ -19,9 +19,13 @@ export class WallPage implements OnInit {
     service.getPublicaciones()
       .subscribe((publicaciones: Story[])=>{
         this.publications = publicaciones;
-        this.storage.set('publis',this.publications)
+        this.storage.set('publis',this.publications.reverse())
 
       });
+  }
+
+  public irCrear(){
+        this.router.navigate(['/tabs/createPublication'])      
   }
 
   public goToPubli(id: string){

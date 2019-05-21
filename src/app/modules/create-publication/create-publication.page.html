@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva publicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form #form="ngForm" (ngSubmit)="logForm(form)" novalidate>
+      <ion-item>
+        <h3>Titulo</h3>
+      </ion-item>
+      <ion-item>
+        <ion-input required [(ngModel)]="todo.title" ngControl="title" name="title" placeholder="Introduce un titulo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <h3>Descripción</h3></ion-item>
+        <ion-item>
+        <ion-textarea required [(ngModel)]="todo.description" name="description" ngControl="description" placeholder="Introduce una descripcion..."></ion-textarea>
+      </ion-item>
+      <ion-item text-center>
+        <ion-button type="submit" block>Subir</ion-button>
+      </ion-item>
+    </form>
+    </ion-card>
+</ion-content>
